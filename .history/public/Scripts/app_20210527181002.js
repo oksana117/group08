@@ -1,0 +1,9 @@
+// IIFE
+
+(function () {
+    
+    function Start() {
+        
+    }
+
+})();
