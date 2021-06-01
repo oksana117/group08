@@ -1,7 +1,7 @@
 /* custom css goes here */
 #standout {
-  font-size: 40px;
-  text-align: center;
+  font-size: 30px;
+  text-align: left;
   color: #607d8b;
   background: linear-gradient(#ffffff, #c8d2d7);
 }
