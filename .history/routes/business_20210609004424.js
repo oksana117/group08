@@ -15,9 +15,8 @@ router.get('/', (req, res, next) => {
         }
         else
         {
-            //console.log(businessList);
-            //book view, and pushing the object to the view
-            res.render('business', {title: 'Business List', BusinessList: businessList})  
+            console.log(businessList);
+            //res.render('business', {title: 'Book List', BookList: bookList})  
             
         }
     });
