@@ -1,13 +1,12 @@
-let mongoose = require('mongoose');
+var mongoose = required('mongoose');
 
 //create a model class
 
-let businessModel = mongoose.Schema({
+vae businessModel = mongoose.Schema({
     name: String,
     number: String,
     email: String
 },
-  
 {
   collection: "business"
 });

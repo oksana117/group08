@@ -8,15 +8,15 @@ let Business = require('../models/business');
 
 /* GET Route for the Contacts List Page - read operation */
 router.get('/', (req, res, next) => {
-    Business.find((err, businessList) => {
+    Business.find((err, BusinessList) => {
         if (err)
         {
             return console.error(err);
         }
         else
         {
-            console.log(BusinessList);
-            //res.render('business', {title: 'Book List', BookList: bookList})  
+            //console.log(BusinessList);
+            res.render('bussiness', {title: 'Book List', BookList: bookList})  
             
         }
     });

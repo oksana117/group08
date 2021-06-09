@@ -1,4 +1,4 @@
-let mongoose = require('mongoose');
+let mongoose = required('mongoose');
 
 //create a model class
 
@@ -7,7 +7,6 @@ let businessModel = mongoose.Schema({
     number: String,
     email: String
 },
-  
 {
   collection: "business"
 });

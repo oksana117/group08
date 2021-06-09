@@ -1,4 +1,4 @@
-let mongoose = require('mongoose');
+let mongoose = required('mongoose');
 
 //create a model class
 
@@ -7,9 +7,10 @@ let businessModel = mongoose.Schema({
     number: String,
     email: String
 },
-  
+
+
 {
   collection: "business"
 });
 
-module.exports = mongoose.model('Business', businessModel);
+module.exports = mongoose.module('Business', businessModel);

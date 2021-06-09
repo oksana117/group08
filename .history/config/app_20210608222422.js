@@ -14,11 +14,10 @@ mongoose.connect(DB.URI, {useNewUrlParser: true, useUnifiedTopology: true});
 
 //to check if mongoose is working 
 let mongoDB = mongoose.connection;
-mongoDB.on('error', console.error.bind(console, 'Connection Error:'));
-mongoDB.once('open', ()=>{
+mongoDB.on('error', console.error.bind('Connection Error'));
+mongoDB.once('open', () => {
   console.log('Connected to MongoDB...');
 });
-
 
 let  indexRouter = require('../routes/index');
 let usersRouter = require('../routes/users');
@@ -41,8 +40,7 @@ app.use(express.static(path.join(__dirname, '../node_modules')));
 app.use('/public', express.static('public'));
 
 app.use('/', indexRouter);
-app.use('/users', usersRouter);
-app.use('/business-list', businessRouter);
+app.use('/users', usersRouter); app.use('/business-list', businessRouter); 
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

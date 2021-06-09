@@ -42,7 +42,7 @@ app.use('/public', express.static('public'));
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
-app.use('/business-list', businessRouter);
+//app.use('/business-list', businessRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

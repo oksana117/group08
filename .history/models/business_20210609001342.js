@@ -1,4 +1,4 @@
-let mongoose = require('mongoose');
+let mongoose = required('mongoose');
 
 //create a model class
 
