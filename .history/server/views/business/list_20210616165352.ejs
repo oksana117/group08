@@ -27,7 +27,7 @@
                     <% if(typeof displayName == 'string' && displayName) { %>
                     <th class="text-center col-1"></th>
                     <th class="text-center col-1"></th>
-                      <%} %>
+                      
 
                 </tr>
 
@@ -39,7 +39,8 @@
                         <td class="text-center col-2"><%= BusinessList[count].numberCustomer %></td>
                         <td class="text-center col-4"><%= BusinessList[count].emailCustomer %></td>
                         <% if(typeof displayName == 'string' && displayName) { %>
-                                    <td class="text-center col-1">
+                        <td class="text-center col-1">
+                                
                                     <a href="/business-list/edit/<%= BusinessList[count]._id %>" class="btn btn-primary btn-sm">
                                     <i class="fas fa-pencil-alt"></i> Update</a></td>
                                     <td class="text-center col-1">
