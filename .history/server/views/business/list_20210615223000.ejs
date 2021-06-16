@@ -30,8 +30,8 @@
                 <% for(let count = 0; count <BusinessList.length; count++) { %>
                     <tr>
                         <td class="text-center col-2"><%= BusinessList[count].nameCustomer %></td>
-                        <td class="text-center col-2"><%= BusinessList[count].numberCustomer %></td>
-                        <td class="text-center col-4"><%= BusinessList[count].emailCustomer %></td>
+                        <td class="text-center col-2"><%= BusinessList[count].number %></td>
+                        <td class="text-center col-4"><%= BusinessList[count].email %></td>
                         <td class="text-center col-1">
                         <a href="/business-list/edit/<%= BusinessList[count]._id %>" class="btn btn-primary btn-sm">
                         <i class="fas fa-pencil-alt"></i> Edit</a></td>

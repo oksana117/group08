@@ -34,8 +34,8 @@ router.get('/add', (req, res, next) => {
 router.post('/add', (req, res, next) => {
     let newBusiness = Business({
         "nameCustomer": req.body.nameCustomer,
-        "numberCustomer": req.body.numberCustomer,
-        "emailCustomer": req.body.emailCustomer
+        "numberCustomer": req.body.numberCust,
+        "emailCustomer": req.body.email
     });
     Business.create(newBusiness, (err, Business) => {
         if (err)

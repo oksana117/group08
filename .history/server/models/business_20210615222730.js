@@ -4,7 +4,7 @@ let mongoose = require('mongoose');
 
 let businessModel = mongoose.Schema({
     nameCustomer: String,
-    numberCustomer: String,
+    number: String,
     emailCustomer: String
 },
   

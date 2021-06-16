@@ -1,6 +1,8 @@
 <%- include ../partials/header.ejs %>
 
 <%- include ../partials/main_nav.ejs %>
+
+<!-- Content for the Add page -->
 <div class="container">
     <div class="row">
         <div class="offset-md-3 col-md-6">
@@ -12,9 +14,7 @@
                     <input type="text" class="form-control"
                     id="nameTextField"
                     placeholder="Enter first and last name"
-                    name="nameCustomer" 
-                    value="<%= business.nameCustomer %>"
-                    required>
+                    name="nameCustomer" required>
                 </div>
 
                 <div class="form-group">
@@ -22,9 +22,7 @@
                     <input type="text" class="form-control"
                     id="numberTextField"
                     placeholder="Enter phone number"
-                    name="numberCustomer" 
-                    value="<%= business.numberCustomer %>"
-                    required>
+                    name="numberCustomer" required>
                 </div>
 
                 <div class="form-group">
@@ -32,13 +30,11 @@
                     <input type="text" class="form-control"
                     id="emailTextField"
                     placeholder="Enter the email adress"
-                    name="emailCustomer" 
-                    value="<%= business.Customer %>"
-                    required>
+                    name="email" required>
                 </div>
-             
+
                 <button class="btn btn-primary" type="submit">
-                <i class="fas fa-edit"></i> Submit</button>
+                    <i class="fas fa-edit"></i> Submit</button>
                 
                     <a href="/business-list" class="btn btn-warning">
                         <i class="fas fa-undo"></i> Cancel</a>
@@ -49,8 +45,9 @@
     </div>
 </div>
 
-
 <%- include ../partials/bottom_nav.ejs %>  
 
 <%- include ../partials/footer.ejs %>
   
+
+

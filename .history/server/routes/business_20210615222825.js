@@ -33,9 +33,9 @@ router.get('/add', (req, res, next) => {
 /* GET Route for processing Add Page - create operation */
 router.post('/add', (req, res, next) => {
     let newBusiness = Business({
-        "nameCustomer": req.body.nameCustomer,
-        "numberCustomer": req.body.numberCustomer,
-        "emailCustomer": req.body.emailCustomer
+        "nameCustomer": req.body.name,
+        "numberCustomer": req.body.number,
+        "emailCustomer": req.body.email
     });
     Business.create(newBusiness, (err, Business) => {
         if (err)
@@ -78,7 +78,7 @@ router.post('/edit/:id', (req, res, next) => {
         "_id": id,
         "nameCustomer": req.body.nameCustomer,
         "numberCustomer": req.body.numberCustomer,
-        "emailCustomer": req.body.emailCustomer
+        "emailCustomer": req.body.email
     });
     
     Business.updateOne({ _id: id }, updatedBusiness, (err) => {
