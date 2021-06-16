@@ -24,6 +24,21 @@ router.get('/edit/:id', businessController.displayEditPage);
 router.post('/edit/:id', businessController.processEditPage);
 
 /* GET Route to perform   Deletion Page - delete operation */
-router.get('/delete/:id', businessController.performDelete);
+router.get('/delete/:id', (req, res, next) => {
+      let id = req.params.id;
+
+    Business.remove({_id: id}, (err) => {
+        if(err)
+        {
+            console.log(err);
+            res.end(err);
+        }
+        else
+        {
+             // refresh the book list
+             res.redirect('/business-list');
+        }
+    });
+});
 
 module.exports = router;

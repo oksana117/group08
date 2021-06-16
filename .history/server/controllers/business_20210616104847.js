@@ -71,7 +71,7 @@ module.exports.displayEditPage = (req, res, next) => {
         }
     });
 }
-
+/*
 module.exports.processEditPage = (req, res, next) => {
     let id = req.params.id
 
@@ -95,6 +95,7 @@ module.exports.processEditPage = (req, res, next) => {
         }
     });
 
+});
 }
 
 module.exports.performDelete = (req, res, next) => {
@@ -108,8 +109,9 @@ module.exports.performDelete = (req, res, next) => {
         }
         else
         {
-             
+             // refresh the book list
              res.redirect('/business-list');
         }
     });
 }
+*/

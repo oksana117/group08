@@ -53,7 +53,7 @@ module.exports.processAddPage = (req, res, next) => {
     });
 
 }
-
+/
 module.exports.displayEditPage = (req, res, next) => {
     let id = req.params.id;
 
@@ -76,13 +76,12 @@ module.exports.processEditPage = (req, res, next) => {
     let id = req.params.id
 
     let updatedBusiness = Business({
-        "_id": id,
-        "nameCustomer": req.body.nameCustomer,
+       "nameCustomer": req.body.nameCustomer,
         "numberCustomer": req.body.numberCustomer,
         "emailCustomer": req.body.emailCustomer
     });
-    
-    Business.updateOne({ _id: id }, updatedBusiness, (err) => {
+
+    Business.updateOne({_id: id}, updatedBusiness, (err) => {
         if(err)
         {
             console.log(err);
@@ -90,11 +89,10 @@ module.exports.processEditPage = (req, res, next) => {
         }
         else
         {
-            // refresh the contact list
+            // refresh the book list
             res.redirect('/business-list');
         }
     });
-
 }
 
 module.exports.performDelete = (req, res, next) => {
@@ -108,8 +106,9 @@ module.exports.performDelete = (req, res, next) => {
         }
         else
         {
-             
+             // refresh the book list
              res.redirect('/business-list');
         }
     });
 }
+*/

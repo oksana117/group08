@@ -24,6 +24,6 @@ router.get('/edit/:id', businessController.displayEditPage);
 router.post('/edit/:id', businessController.processEditPage);
 
 /* GET Route to perform   Deletion Page - delete operation */
-router.get('/delete/:id', businessController.performDelete);
+router.get('/delete/:id', businessController.);
 
 module.exports = router;

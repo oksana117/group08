@@ -96,7 +96,7 @@ module.exports.processEditPage = (req, res, next) => {
     });
 
 }
-
+/*
 module.exports.performDelete = (req, res, next) => {
     let id = req.params.id;
 
