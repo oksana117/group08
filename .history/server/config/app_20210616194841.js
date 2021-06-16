@@ -74,6 +74,12 @@ passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
 
 
+
+//passport.use(strategy);
+
+
+
+
 // add images 
 
 app.use('/public', express.static('./public'));
