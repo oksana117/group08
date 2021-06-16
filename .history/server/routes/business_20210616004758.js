@@ -15,25 +15,7 @@ router.get('/', businessController.displayBusinessList);
 router.get('/add', businessController.displayAddPage);
 
 /* GET Route for processing Add Page - create operation */
-router.post('/add', (req, res, next) => {
-    let newBusiness = Business({
-        "nameCustomer": req.body.nameCustomer,
-        "numberCustomer": req.body.numberCustomer,
-        "emailCustomer": req.body.emailCustomer
-    });
-    Business.create(newBusiness, (err, Business) => {
-        if (err)
-        {
-            console.log(err);
-            res.end(err);
-        }
-        else
-        { //refresh list
-            res.redirect('/business-list');
-        }
-    })
-
-});
+router.post('/add', co;
 //0.25 min
 /* GET Route for displaying  Edit Page - update operation */
 router.get('/edit/:id', (req, res, next) => {

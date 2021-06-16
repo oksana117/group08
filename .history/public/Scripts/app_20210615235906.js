@@ -10,8 +10,7 @@
         // prevents the automatic deletion 
         for(button of deleteButtons)
         {
-            button.addEventListener('click', (event)=>{
-                if(!confirm("Delete the selected row?")) 
+            button.addEventListener('click', (event)=>{")) 
                 {
                     event.preventDefault();
                     window.location.assign('/business-list');

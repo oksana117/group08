@@ -6,13 +6,31 @@ let mongoose = require('mongoose');
 
 let Business = require('../models/business');
 
-let businessController = require('../controllers/business');
+let businessController = require('../controllers/b');
 
 /* GET Route for the Contacts List Page - read operation */
-router.get('/', businessController.displayBusinessList);
+router.get('/', (req, res, next) => {
+    Business.find((err, businessList) => {
+        if (err)
+        {
+            return console.error(err);
+        }
+        else
+        {
+            //console.log(businessList);
+            //book view, and pushing the object to the view
+            res.render('business/list', { title:'Business List', BusinessList: businessList });
+            
+        }
+    });
+   
+});
 
 /* GET Route for displaying  Add Page - create operation */
-router.get('/add', businessController.displayAddPage);
+router.get('/add', (req, res, next) => {
+    res.render('business/add', { title: 'Add Contact'})
+
+});
 
 /* GET Route for processing Add Page - create operation */
 router.post('/add', (req, res, next) => {

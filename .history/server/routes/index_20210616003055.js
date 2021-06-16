@@ -21,6 +21,8 @@ router.get('/projects', indexController.displayProjectsPage);
 router.get('/services', indexController.displayServicesPage);
 
 /* GET contact me page. */
-router.get('/contact', indexController.displayContactPage);
+router.get('/contact', function(req, res, next) {
+  res.render('index', {title: 'Contact'});
+});
 
 module.exports = router;

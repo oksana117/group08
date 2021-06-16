@@ -12,15 +12,20 @@ router.get('/', indexController.displayHomePage);
 router.get('/home', indexController.displayHomePage);
 
 /* GET about me page. */
-router.get('/about', indexController.displayAboutPage);
-
+router.get('/about', indexController.displayAboutPage
 /* GET projects page. */
-router.get('/projects', indexController.displayProjectsPage);
+router.get('/projects', function(req, res, next) {
+  res.render('index', {title: 'Projects'});
+});
 
 /* GET services page. */
-router.get('/services', indexController.displayServicesPage);
+router.get('/services', function(req, res, next) {
+  res.render('index', {title: 'Services'});
+});
 
 /* GET contact me page. */
-router.get('/contact', indexController.displayContactPage);
+router.get('/contact', function(req, res, next) {
+  res.render('index', {title: 'Contact'});
+});
 
 module.exports = router;

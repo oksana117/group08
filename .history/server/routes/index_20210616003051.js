@@ -18,9 +18,11 @@ router.get('/about', indexController.displayAboutPage);
 router.get('/projects', indexController.displayProjectsPage);
 
 /* GET services page. */
-router.get('/services', indexController.displayServicesPage);
+router.get('/services', );
 
 /* GET contact me page. */
-router.get('/contact', indexController.displayContactPage);
+router.get('/contact', function(req, res, next) {
+  res.render('index', {title: 'Contact'});
+});
 
 module.exports = router;

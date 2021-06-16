@@ -12,7 +12,7 @@ let businessController = require('../controllers/business');
 router.get('/', businessController.displayBusinessList);
 
 /* GET Route for displaying  Add Page - create operation */
-router.get('/add', businessController.displayAddPage);
+router.get('/add', ;
 
 /* GET Route for processing Add Page - create operation */
 router.post('/add', (req, res, next) => {

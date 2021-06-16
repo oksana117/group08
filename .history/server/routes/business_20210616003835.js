@@ -11,8 +11,12 @@ let businessController = require('../controllers/business');
 /* GET Route for the Contacts List Page - read operation */
 router.get('/', businessController.displayBusinessList);
 
+
 /* GET Route for displaying  Add Page - create operation */
-router.get('/add', businessController.displayAddPage);
+router.get('/add', (req, res, next) => {
+    res.render('business/add', { title: 'Add Contact'})
+
+});
 
 /* GET Route for processing Add Page - create operation */
 router.post('/add', (req, res, next) => {

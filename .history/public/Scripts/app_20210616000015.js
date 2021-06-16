@@ -11,7 +11,7 @@
         for(button of deleteButtons)
         {
             button.addEventListener('click', (event)=>{
-                if(!confirm("Delete the selected row?")) 
+                if(!confirm("Delete this row?")) 
                 {
                     event.preventDefault();
                     window.location.assign('/business-list');
