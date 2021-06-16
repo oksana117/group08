@@ -64,7 +64,7 @@ router.get('/edit/:id', (req, res, next) => {
         else
         {
             //show the edit view
-            res.render('business/edit', {title: 'Edit Business', business: businessToEdit})
+            res.render('book/edit', {title: 'Edit Book', book: businessToEdit})
         }
     });
 
@@ -74,44 +74,20 @@ router.get('/edit/:id', (req, res, next) => {
 router.post('/edit/:id', (req, res, next) => {
     let id = req.params.id
 
-    let updatedBusiness = Business({
+    let updatedBusiness = Book({
         "_id": id,
         "name": req.body.name,
-        "number": req.body.number,
-        "email": req.body.email
-    });
-    
-    Business.updateOne({ _id: id }, updatedBusiness, (err) => {
-        if(err)
-        {
-            console.log(err);
-            res.end(err);
-        }
-        else
-        {
-            // refresh the contact list
-            res.redirect('/business-list');
-        }
+        "author": req.body.author,
+        "published": req.body.published,
+        "description": req.body.description,
+        "price": req.body.price
     });
 
 });
 
 /* GET Route to perform   Deletion Page - delete operation */
 router.get('/delete/:id', (req, res, next) => {
-      let id = req.params.id;
 
-    Business.remove({_id: id}, (err) => {
-        if(err)
-        {
-            console.log(err);
-            res.end(err);
-        }
-        else
-        {
-             // refresh the book list
-             res.redirect('/business-list');
-        }
-    });
 });
 
 module.exports = router;

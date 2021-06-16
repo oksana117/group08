@@ -64,7 +64,7 @@ router.get('/edit/:id', (req, res, next) => {
         else
         {
             //show the edit view
-            res.render('business/edit', {title: 'Edit Business', business: businessToEdit})
+            res.render('business/edit', {title: 'Edit Business', book: businessToEdit})
         }
     });
 

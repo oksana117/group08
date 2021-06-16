@@ -2,7 +2,7 @@
 
 <%- include ../partials/main_nav.ejs %>
 
-<!-- Content for the Add page -->
+!-- Content for the Add page -->
 <div class="container">
     <div class="row">
         <div class="offset-md-3 col-md-6">
@@ -10,7 +10,7 @@
 
             <form class="form" method="POST">
                 <div class="form-group">
-                    <label for="nameTextField">Contact Name</label>
+                    <label for="nameTextField">Name</label>
                     <input type="text" class="form-control"
                     id="name"
                     placeholder="Enter first and last name"
@@ -18,25 +18,25 @@
                 </div>
 
                 <div class="form-group">
-                    <label for="numberTextField">Contact Number</label>
+                    <label for="numberTextField">Author</label>
                     <input type="text" class="form-control"
-                    id="numberTextField"
-                    placeholder="Enter phone number"
+                    id="authorTextField"
+                    placeholder="Enter the Book's Author"
                     name="number" required>
                 </div>
 
                 <div class="form-group">
-                    <label for="emailTextField">Email</label>
+                    <label for="publishedTextField">Year</label>
                     <input type="text" class="form-control"
-                    id="emailTextField"
-                    placeholder="Enter the email adress"
+                    id="publishedTextField"
+                    placeholder="Enter the Year of Publication"
                     name="email" required>
                 </div>
 
                 <button class="btn btn-primary" type="submit">
                     <i class="fas fa-edit"></i> Submit</button>
                 
-                    <a href="/business-list" class="btn btn-warning">
+                    <a href="/book-list" class="btn btn-warning">
                         <i class="fas fa-undo"></i> Cancel</a>
 
             </form>
@@ -45,9 +45,22 @@
     </div>
 </div>
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <%- include ../partials/bottom_nav.ejs %>  
 
 <%- include ../partials/footer.ejs %>
   
-
-

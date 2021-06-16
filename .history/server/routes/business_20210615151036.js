@@ -64,7 +64,7 @@ router.get('/edit/:id', (req, res, next) => {
         else
         {
             //show the edit view
-            res.render('business/edit', {title: 'Edit Business', business: businessToEdit})
+            res.render('book/edit', {title: 'Edit Book', book: businessToEdit})
         }
     });
 
@@ -76,7 +76,7 @@ router.post('/edit/:id', (req, res, next) => {
 
     let updatedBusiness = Business({
         "_id": id,
-        "name": req.body.name,
+          "name": req.body.name,
         "number": req.body.number,
         "email": req.body.email
     });
@@ -98,9 +98,9 @@ router.post('/edit/:id', (req, res, next) => {
 
 /* GET Route to perform   Deletion Page - delete operation */
 router.get('/delete/:id', (req, res, next) => {
-      let id = req.params.id;
+et id = req.params.id;
 
-    Business.remove({_id: id}, (err) => {
+    Book.remove({_id: id}, (err) => {
         if(err)
         {
             console.log(err);
@@ -109,7 +109,7 @@ router.get('/delete/:id', (req, res, next) => {
         else
         {
              // refresh the book list
-             res.redirect('/business-list');
+             res.redirect('/book-list');
         }
     });
 });

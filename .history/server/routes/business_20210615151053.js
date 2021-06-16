@@ -64,7 +64,7 @@ router.get('/edit/:id', (req, res, next) => {
         else
         {
             //show the edit view
-            res.render('business/edit', {title: 'Edit Business', business: businessToEdit})
+            res.render('book/edit', {title: 'Edit Book', book: businessToEdit})
         }
     });
 
@@ -76,7 +76,7 @@ router.post('/edit/:id', (req, res, next) => {
 
     let updatedBusiness = Business({
         "_id": id,
-        "name": req.body.name,
+          "name": req.body.name,
         "number": req.body.number,
         "email": req.body.email
     });
