@@ -7,7 +7,7 @@ let passport = require('passport');
 let userModel = require('../models/user');
 let User = userModel.User; // alias
 
-//controller separation logic
+//contoller separation logic
 
 module.exports.displayHomePage = (req, res, next) => {
     res.render('index', {title: 'Home', displayName: req.user ? req.user.displayName : ''});
@@ -74,9 +74,9 @@ module.exports.processLoginPage = (req, res, next) => {
                 email: user.email
             }
 
-            /*const authToken = jwt.sign(payload, DB.Secret, {
+            const authToken = jwt.sign(payload, DB.Secret, {
                 expiresIn: 604800 // 1 week
-            }); */
+            });
 
             /* TODO - Getting Ready to convert to API
             res.json({success: true, msg: 'User Logged in Successfully!', user: {

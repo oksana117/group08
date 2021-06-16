@@ -23,21 +23,15 @@ router.get('/services', indexController.displayServicesPage);
 /* GET contact me page. */
 router.get('/contact', indexController.displayContactPage);
 
-/* GET Route for displaying Login Page */
-router.get('/login', indexController.displayLoginPage);
+/* GET Route for displaying Login Page - access operation */
+router.get('/login', businessController.displayAddPage);
 
 /* GET Route for processing Login Page  */
-router.post('/login', indexController.processLoginPage);
+router.post('/login', businessController.processAddPage);
 
-/* GET Route for displaying Register Page */
-router.get('/register', indexController.displayRegisterPage);
+/* GET Route for displaying Register Page - access operation */
+router.get('/register', businessController.displayAddPage);
 
-/* GET Route for processing Register Page  */
-router.post('/register', indexController.processRegisterPage);
-
-/* GET Route to perform User Logout Page - delete operation */
-router.get('/logout', indexController.performLogout);
-
-
-
+/* GET Route for processing Register Page - access/read operation */
+router.post('/register', businessController.processAddPage);
 module.exports = router;

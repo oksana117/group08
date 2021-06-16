@@ -27,16 +27,16 @@ router.get('/contact', indexController.displayContactPage);
 router.get('/login', indexController.displayLoginPage);
 
 /* GET Route for processing Login Page  */
-router.post('/login', indexController.processLoginPage);
+router.post('/login', indexController.processAddPage);
 
 /* GET Route for displaying Register Page */
-router.get('/register', indexController.displayRegisterPage);
+//router.get('/register', businessController.displayAddPage);
 
 /* GET Route for processing Register Page  */
-router.post('/register', indexController.processRegisterPage);
+//router.post('/register', businessController.processAddPage);
 
 /* GET Route to perform User Logout Page - delete operation */
-router.get('/logout', indexController.performLogout);
+//router.get('/logout', businessController.performDelete);
 
 
 

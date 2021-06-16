@@ -33,10 +33,10 @@ router.post('/login', indexController.processLoginPage);
 router.get('/register', indexController.displayRegisterPage);
 
 /* GET Route for processing Register Page  */
-router.post('/register', indexController.processRegisterPage);
+router.post('/register', inde);
 
 /* GET Route to perform User Logout Page - delete operation */
-router.get('/logout', indexController.performLogout);
+//router.get('/logout', businessController.performDelete);
 
 
 

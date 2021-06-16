@@ -24,19 +24,19 @@ router.get('/services', indexController.displayServicesPage);
 router.get('/contact', indexController.displayContactPage);
 
 /* GET Route for displaying Login Page */
-router.get('/login', indexController.displayLoginPage);
+router.get('/login', businessController.displayAddPage);
 
 /* GET Route for processing Login Page  */
-router.post('/login', indexController.processLoginPage);
+router.post('/login', businessController.processAddPage);
 
 /* GET Route for displaying Register Page */
-router.get('/register', indexController.displayRegisterPage);
+router.get('/register', businessController.displayAddPage);
 
 /* GET Route for processing Register Page  */
-router.post('/register', indexController.processRegisterPage);
+router.post('/register', businessController.processAddPage);
 
-/* GET Route to perform User Logout Page - delete operation */
-router.get('/logout', indexController.performLogout);
+/* GET Route to perform  Logout Page - delete operation */
+router.get('/delete/:id', businessController.performDelete);
 
 
 

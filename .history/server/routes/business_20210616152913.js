@@ -25,18 +25,18 @@ let businessController = require('../controllers/business');
 router.get('/', businessController.displayBusinessList);
 
 /* GET Route for displaying  Add Page - create operation */
-router.get('/add', requireAuth, businessController.displayAddPage);
+router.get('/add', businessController.displayAddPage);
 
 /* GET Route for processing Add Page - create operation */
-router.post('/add',requireAuth, businessController.processAddPage);
+router.post('/add', businessController.processAddPage);
 
 /* GET Route for displaying  Edit Page - update operation */
-router.get('/edit/:id', requireAuth, businessController.displayEditPage);
+router.get('/edit/:id', businessController.displayEditPage);
 
 /* GET Route for processing Edit Page - update operation */
-router.post('/edit/:id', requireAuth, businessController.processEditPage);
+router.post('/edit/:id', businessController.processEditPage);
 
 /* GET Route to perform   Deletion Page - delete operation */
-router.get('/delete/:id', requireAuth, businessController.performDelete);
+router.get('/delete/:id', businessController.performDelete);
 
 module.exports = router;
