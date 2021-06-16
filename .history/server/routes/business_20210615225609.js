@@ -45,7 +45,7 @@ router.post('/add', (req, res, next) => {
         }
         else
         { //refresh list
-            res.redirect('/business-list');
+            res.redirect('/user')
         }
     })
 
