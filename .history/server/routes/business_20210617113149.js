@@ -42,3 +42,27 @@ router.get('/delete/:id', requireAuth, businessController.performDelete);
 module.exports = router;
 
 
+/*
+ * Requires the MongoDB Node.js Driver
+ * https://mongodb.github.io/node-mongodb-native
+ */
+
+const agg = [
+  {
+    '$sort': {
+      'nameCustomer': 1
+    }
+  }
+];
+
+MongoClient.connect(
+  '',
+  { useNewUrlParser: true, useUnifiedTopology: true },
+  function(connectErr, client) {
+    assert.equal(null, connectErr);
+    const coll = client.db('').collection('');
+    coll.aggregate(agg, (cmdErr, result) => {
+      assert.equal(null, cmdErr);
+    });
+    client.close();
+  });
