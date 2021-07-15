@@ -1,7 +1,0 @@
-// IIFE
-
-(function () {
-    
-function 
-
-})();
