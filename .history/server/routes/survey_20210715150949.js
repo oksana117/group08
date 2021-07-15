@@ -6,7 +6,7 @@ let mongoose = require('mongoose');
 let surveyController = require('../controllers/survey');
 
 
-/* GET Route for the Survey page - READ Operation */
+/* GET Route for the Business Contacts page - READ Operation */
 router.get('/', surveyController.displaySurvey);
 
 
@@ -29,4 +29,3 @@ router.post('/edit/:id',  surveyController.processEditPage);
 /* GET Route to perform Deletion - DELETE Operation */
 router.get('/delete/:id', surveyController.performDelete);
 
-module.exports = router;

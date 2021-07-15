@@ -36,7 +36,7 @@ let  indexRouter = require('../routes/index');
 let usersRouter = require('../routes/users');
 //let businessRouter = require('../routes/business')
 let surveyRouter = require('../routes/survey');
-let questionsRouter = require('../routes/questions')
+let questionsRouter = require('../routes/survey')
 
 
 let  app = express();
@@ -79,7 +79,7 @@ passport.use(User.createStrategy());
 passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
 
-//let questionsModel = require('../models/questions');
+let questionsModel = require('../models/questions');
 // add images 
 
 app.use('/public', express.static('./public'));

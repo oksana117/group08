@@ -89,7 +89,7 @@ app.use('/public', express.static('./public'));
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/survey-list', surveyRouter);
-app.use('/survey-view', questionsRouter);
+app.use('/survey-, questionsRouter);
 
 //app.use('/business-list', businessRouter);
 

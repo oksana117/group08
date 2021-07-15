@@ -6,7 +6,7 @@ let mongoose = require('mongoose');
 let surveyController = require('../controllers/survey');
 
 
-/* GET Route for the Survey page - READ Operation */
+/* GET Route for the Business Contacts page - READ Operation */
 router.get('/', surveyController.displaySurvey);
 
 

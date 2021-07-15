@@ -79,7 +79,7 @@ passport.use(User.createStrategy());
 passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
 
-//let questionsModel = require('../models/questions');
+let questionsModel = require('../models/questions');
 // add images 
 
 app.use('/public', express.static('./public'));
@@ -89,7 +89,7 @@ app.use('/public', express.static('./public'));
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/survey-list', surveyRouter);
-app.use('/survey-view', questionsRouter);
+app.use('', questionsRouter);
 
 //app.use('/business-list', businessRouter);
 
