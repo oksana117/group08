@@ -26,6 +26,6 @@ router.post('/update/:id',  questionsController.processUpdatePage);
  
 //router.get('/view/:id', questionsController.displayNewSurvey);
 
-router.get('/delete/:id', questionsController.performDelete);
+router.get('/delete/:id', surveyController.performDelete);
 
 module.exports = router;
