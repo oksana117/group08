@@ -8,7 +8,7 @@ let questionsController = require('../controllers/questions');
 
 /* GET Route for displaying the Add page - CREATE Operation */
 router.get('/', questionsController.displayView);
-router.get('/survey/view', questionsController.displayView);
+router.get('/survey-view', questionsController.displayView);
 
 /* GET Route for displaying the Add page - CREATE Operation */
 router.get('/create/:id', questionsController.displayCreatePage);  
