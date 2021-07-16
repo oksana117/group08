@@ -51,15 +51,10 @@ module.exports.displayCreatePage = (req, res, next) =>{
     // start loop here
     let newQuestions = Questions({
         "question": req.body.question1,
-        "type":req.body.question1,
         "question": req.body.question2,
-        "type": req.body.question2,
         "question": req.body.question3,
-        "type": req.body.question3,
         "question": req.body.question4,
-        "type": req.body.question4,
-        "question": req.body.question5,
-        "type": req.body.question5
+        "question": req.body.question
         //question type
         //question/survey id
     });

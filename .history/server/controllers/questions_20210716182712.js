@@ -57,9 +57,9 @@ module.exports.displayCreatePage = (req, res, next) =>{
         "question": req.body.question3,
         "type": req.body.question3,
         "question": req.body.question4,
-        "type": req.body.question4,
+         "type":req.body.question4,
         "question": req.body.question5,
-        "type": req.body.question5
+         "type":req.body.question5
         //question type
         //question/survey id
     });

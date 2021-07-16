@@ -1,4 +1,15 @@
-let  createError = require('http-errors');
+/* Team: Group 8
+  Web site name : Pandora-Survey
+  Date : July 18, 2021
+  Author's names & Student IDs:
+  Oksana Koshulap: 301167025
+  Remedios Meneses: 300691712
+  Anmary Gain: 301152014 
+  Tesmine Poulose: 301151876
+  Sapna: 301152192 */
+
+
+let createError = require('http-errors');
 let  express = require('express');
 let  path = require('path');
 let  cookieParser = require('cookie-parser');
@@ -8,10 +19,7 @@ let  logger = require('morgan');
 // modules for authentication
 let session = require('express-session');
 let passport = require('passport');
-/*
-let passportJWT = require('passport-jwt');
-let JWTStrategy = passportJWT.Strategy;
-let ExtractJWT = passportJWT.ExtractJwt;
+d
 
 let passportLocal = require('passport-local');
 let localStrategy = passportLocal.Strategy;
@@ -31,10 +39,13 @@ mongoDB.once('open', ()=>{
   console.log('Connected to MongoDB...');
 });
 
+//routers set up
 
 let  indexRouter = require('../routes/index');
 let usersRouter = require('../routes/users');
-let businessRouter = require('../routes/business')
+let surveyRouter = require('../routes/survey');
+let questionsRouter = require('../routes/questions')
+
 
 let  app = express();
 
@@ -63,7 +74,7 @@ app.use(flash());
 app.use(passport.initialize());
 app.use(passport.session());
 
-// passport user configuration
+
 
 // create a User Model Instance
 let userModel = require('../models/user');
@@ -76,34 +87,19 @@ passport.use(User.createStrategy());
 passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
 
-/*
-let jwtOptions = {};
-jwtOptions.jwtFromRequest = ExtractJWT.fromAuthHeaderAsBearerToken();
-jwtOptions.secretOrKey = DB.Secret;
-
-let strategy = new JWTStrategy(jwtOptions, (jwt_payload, done) => {
-  User.findById(jwt_payload.id)
-    .then(user => {
-      return done(null, user);
-    })
-    .catch(err => {
-      return done(err, false);
-    });
-});
-
-passport.use(strategy);
-*/
-
-
-
+//let questionsModel = require('../models/questions');
 // add images 
 
 app.use('/public', express.static('./public'));
+
 // routing
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
-app.use('/business-list', businessRouter);
+app.use('/survey-list', surveyRouter);
+app.use('/survey-view', questionsRouter);
+
+//app.use('/business-list', businessRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
@@ -123,3 +119,4 @@ app.use(function(err, req, res, next) {
 
   
 module.exports = app;
+
