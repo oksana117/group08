@@ -23,7 +23,7 @@ router.post('/create/:id',  questionsController.processCreatePage);
 router.get('/update/:id',  questionsController.displayUpdatePage);
      
 
-/* POST Route for processing the update page - UPDATE Operation */
+/* POST Route for processing the t page - UPDATE Operation */
 router.post('/update/:id',  questionsController.processUpdatePage);
  
 //router.get('/view/:id', questionsController.displayNewSurvey);

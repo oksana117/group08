@@ -24,8 +24,8 @@ let Questions = require('../models/questions');
         }
     });
   }
-module.exports.displayView = (req, res, next) => {
-    res.render('view', {title: 'Questions List', displayName: req.user ? req.user.displayName : ''});
+module.exports.displayHomePage = (req, res, next) => {
+    res.render('index', {title: 'Home', displayName: req.user ? req.user.displayName : ''});
 }
 
   

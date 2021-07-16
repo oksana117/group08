@@ -1,9 +1,20 @@
-let  createError = require('http-errors');
+/* Oksana Koshulap, 301167025, June 18, 2021 */
+
+let createError = require('http-errors');
 let  express = require('express');
 let  path = require('path');
 let  cookieParser = require('cookie-parser');
 let  logger = require('morgan');
 
+
+// modules for authentication
+let session = require('express-session');
+let passport = require('passport');
+
+
+let passportLocal = require('passport-local');
+let localStrategy = passportLocal.Strategy;
+let flash = require('connect-flash');
 
 //database setup
 let mongoose = require('mongoose');
@@ -19,10 +30,13 @@ mongoDB.once('open', ()=>{
   console.log('Connected to MongoDB...');
 });
 
+//routers set up
 
 let  indexRouter = require('../routes/index');
 let usersRouter = require('../routes/users');
-let businessRouter = require('../routes/business')
+let surveyRouter = require('../routes/survey');
+let questionsRouter = require('../routes/questions')
+
 
 let  app = express();
 
@@ -37,12 +51,46 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, '../../public')));
 app.use(express.static(path.join(__dirname, '../../node_modules')));
 
+//setup express session
+app.use(session({
+  secret: "SomeSecret",
+  saveUninitialized: false,
+  resave: false
+}));
+
+// initialize flash
+app.use(flash());
+
+// initialize passport
+app.use(passport.initialize());
+app.use(passport.session());
+
+
+
+// create a User Model Instance
+let userModel = require('../models/user');
+let User = userModel.User;
+
+// implement a User Authentication Strategy
+passport.use(User.createStrategy());
+
+// serialize and deserialize the User info
+passport.serializeUser(User.serializeUser());
+passport.deserializeUser(User.deserializeUser());
+
+//let questionsModel = require('../models/questions');
 // add images 
+
 app.use('/public', express.static('./public'));
+
+// routing
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
-app.use('/business-list', businessRouter);
+app.use('/survey-list', surveyRouter);
+app.use('/survey-view', questionsRouter);
+
+//app.use('/business-list', businessRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
@@ -62,3 +110,4 @@ app.use(function(err, req, res, next) {
 
   
 module.exports = app;
+

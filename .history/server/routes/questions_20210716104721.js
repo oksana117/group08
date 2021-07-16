@@ -6,7 +6,7 @@ let mongoose = require('mongoose');
 let questionsController = require('../controllers/questions');
 
 
-/* GET Route for displaying the view page - CREATE Operation */
+/* GET Route for displaying the Add page - CREATE Operation */
 router.get('/', questionsController.displayView);
 
 //router.get('/survey/view', questionsController.displayView);
@@ -15,15 +15,15 @@ router.get('/', questionsController.displayView);
 router.get('/create/:id', questionsController.displayCreatePage);  
 
 
-/* POST Route for processing the create page - CREATE Operation */
+/* POST Route for processing the Add page - CREATE Operation */
 router.post('/create/:id',  questionsController.processCreatePage);
     
 
-/* GET Route for displaying the update page - UPDATE Operation */
+/* GET Route for displaying the Edit page - UPDATE Operation */
 router.get('/update/:id',  questionsController.displayUpdatePage);
      
 
-/* POST Route for processing the update page - UPDATE Operation */
+/* POST Route for processing the Edit page - UPDATE Operation */
 router.post('/update/:id',  questionsController.processUpdatePage);
  
 //router.get('/view/:id', questionsController.displayNewSurvey);

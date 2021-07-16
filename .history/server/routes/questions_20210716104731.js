@@ -19,11 +19,11 @@ router.get('/create/:id', questionsController.displayCreatePage);
 router.post('/create/:id',  questionsController.processCreatePage);
     
 
-/* GET Route for displaying the update page - UPDATE Operation */
+/* GET Route for displaying the Edit page - UPDATE Operation */
 router.get('/update/:id',  questionsController.displayUpdatePage);
      
 
-/* POST Route for processing the update page - UPDATE Operation */
+/* POST Route for processing the Edit page - UPDATE Operation */
 router.post('/update/:id',  questionsController.processUpdatePage);
  
 //router.get('/view/:id', questionsController.displayNewSurvey);
