@@ -11,19 +11,23 @@
 let mongoose = require('mongoose');
 
 //create a model class
-let  questionsModel = mongoose.Schema({
-  
+let surveyModel = mongoose.Schema({
+  username: String,
+  displayName: String,
+  author: String,
+  questionsNumber: String, // need to change it to int or cha
   question: String,
-  type: String,
-  surveyID: String,
-  username: String
+  startDate: Date,
+  endDate: Date,
+  active: Boolean,
+  surveyID: String
 },
 {
-    collection: "questions"
+    collection: "survey"
 });
 
 
 
-module.exports = mongoose.model('Questions',   questionsModel);
+module.exports = mongoose.model('Survey', surveyModel);
 
 
