@@ -31,14 +31,6 @@ module.exports.displayCreatePage = (req, res, next) =>{
   }
   
   module.exports.processCreatePage = (req, res, next) => {
-
-    // receive all the question text and the types here
-
-    // construct the newQuestions object
-
-    // loop that creates multiple questions
-
-    // start loop here
     let newQuestions = Questions({
         "question": req.body.question
         
@@ -56,9 +48,8 @@ module.exports.displayCreatePage = (req, res, next) =>{
             res.redirect('/survey-view');
         }
     });
-
-    // end loop here
 }
+  
   module.exports.displayUpdatePage = (req, res, next) =>{
     let id = req.params.id;
 

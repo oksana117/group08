@@ -7,30 +7,7 @@
   //create a reference to the model
 let Questions = require('../models/questions');
 
-  module.exports.displayView= (req, res, next) => {
-    Questions.find((err, questionList) => {
-        if (err)
-        {
-            return console.error(err);
-        }
-        else
-        {
-            
-            res.render('survey/view', {
-                title: 'Questions List',
-                  QuestionsList: questionList,
-
-            displayName: req.user ? req.user.displayName : ''});      
-        }
-    });
-  }
-  
-module.exports.displayCreatePage = (req, res, next) =>{
-      res.render('survey/create', {title: 'Add New Survey',
-      displayName: req.user ? req.user.displayName : ''});
-  }
-  
-  module.exports.processCreatePage = (req, res, next) => {
+module.exports.processCreatePage = (req, res, next) => {
 
     // receive all the question text and the types here
 
@@ -59,6 +36,31 @@ module.exports.displayCreatePage = (req, res, next) =>{
 
     // end loop here
 }
+module.exports.displayCreatePage = (req, res, next) =>{
+      res.render('survey/create', {title: 'Add New Survey',
+      displayName: req.user ? req.user.displayName : ''});
+  }
+  
+  module.exports.processCreatePage = (req, res, next) => {
+    let newQuestions = Questions({
+        "question": req.body.question
+        
+    });
+
+    Questions.create(newQuestions , (err, question) =>{
+        if(err)
+        {
+            console.log(err);
+            res.end(err);
+        }
+        else
+        {
+            //refresh the businesscontactlist
+            res.redirect('/survey-view');
+        }
+    });
+}
+  
   module.exports.displayUpdatePage = (req, res, next) =>{
     let id = req.params.id;
 
