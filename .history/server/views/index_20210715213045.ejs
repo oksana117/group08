@@ -12,7 +12,7 @@
 <!--Main content -->
 <main class="container"> 
     <div class="jumbotron">
-      <!--<h1 class="display-4">Welcome to the <%= title %> page!</h1> -->
+      <h1 class="display-4">Welcome to the <%= title %> page!</h1>
     </div>
 </main>  
  <!-- detects which title page is active so displays the correc contetn--> 
@@ -28,10 +28,6 @@
 <!-- services content -->
  <% if (title == 'Services') {%> 
   <%- include content/c_services.ejs %> <% }%> 
-<!-- services content -->
-
- <% if (title == 'Contact') {%> 
-  <%- include content/c_contact.ejs %> <% }%> 
 <!-- services content -->
 
 
