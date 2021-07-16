@@ -1,4 +1,4 @@
-/* Team: Group 8
+/* <!-- Team: Group 8
   Web site name : Pandora-Survey
   Date : July 18, 2021
   Author's names & Student IDs:

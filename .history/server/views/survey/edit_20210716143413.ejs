@@ -8,10 +8,10 @@
   Tesmine Poulose: 301151876
   Sapna: 301152192 -->
 <%- include ../partials/header.ejs %>
-
 <%- include ../partials/main_nav.ejs %>
 
-<!-- Content for the Add page -->
+<!-- edit view -->
+
 <div class="container">
     <div class="row">
         <div class="offset-md-3 col-md-6">
@@ -23,7 +23,9 @@
                     <input type="text" class="form-control"
                     id="nameTextField"
                     placeholder="Enter survey name"
-                    name="name" required>
+                    name="name" 
+                    value="<%= survey.name %>"
+                    required>
                 </div>
 
                 <div class="form-group">
@@ -31,19 +33,23 @@
                     <input type="text" class="form-control"
                     id="numberTextField"
                     placeholder="Enter first and last name"
-                    name="author" required>
+                    name="author" 
+                    value="<%= survey.author %>"
+                    required>
                 </div>
 
                 <div class="form-group">
                     <label for="emailTextField">Number of questions</label>
                     <input type="text" class="form-control"
                     id="numberTextField"
-                    placeholder="Enter the amount of questions"
-                    name="questionsNumber" required>
+                    placeholder="Enter first and last name"
+                    name="questionsNumber" 
+                    value="<%= survey.questionsNumber %>"
+                    required>
                 </div>
-                
-                 <a href="/survey-list" > <button class="btn btn-primary" type="submit">
-                    <i class="fas fa-edit"></i> Submit</button> </a> 
+             
+                <button class="btn btn-primary" type="submit">
+                <i class="fas fa-edit"></i> Submit</button>
                 
                     <a href="/survey-list" class="btn btn-warning">
                         <i class="fas fa-undo"></i> Cancel</a>
@@ -54,9 +60,8 @@
     </div>
 </div>
 
+
 <%- include ../partials/bottom_nav.ejs %>  
 
 <%- include ../partials/footer.ejs %>
   
-
-

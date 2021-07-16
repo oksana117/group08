@@ -1,12 +1,8 @@
-/* Team: Group 8
-  Web site name : Pandora-Survey
-  Date : July 18, 2021
-  Author's names & Student IDs:
-  Oksana Koshulap: 301167025
-  Remedios Meneses: 300691712
-  Anmary Gain: 301152014 
-  Tesmine Poulose: 301151876
-  Sapna: 301152192 */
+/*File name : businesscontacts.js
+  Author's name : Remedios Meneses
+  Student ID : 300691712
+  Web site name : RM
+  date : June 18, 2021 */
 
 let mongoose = require('mongoose');
 
