@@ -8,7 +8,7 @@ module.exports =
    // "URI": "mongodb+srv://oksana:lgYAtBXvMQ1BkEUX@mongodbserver.wuevp.mongodb.net/business_contacts?retryWrites=true&w=majority"
     
     "URI": "mongodb://localhost/survey"
-    
+      "URI": "mongodb://localhost/survey"
 }
 
 
