@@ -10,7 +10,7 @@ let mongoose = require('mongoose');
 let surveyModel = mongoose.Schema({
     name: String,
     author: String,
-  questionsNumber: String,
+  questionsNumber: String
   question: String
 },
 {

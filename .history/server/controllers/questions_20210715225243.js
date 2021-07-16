@@ -16,7 +16,7 @@ let Questions = require('../models/questions');
         else
         {
             
-            res.render('survey/view', {
+            res.render('survey-list/view', {
                 title: 'Questions List',
                   QuestionsList: questionList,
 

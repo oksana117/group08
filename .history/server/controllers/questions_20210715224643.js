@@ -45,7 +45,7 @@ module.exports.displayCreatePage = (req, res, next) =>{
         else
         {
             //refresh the businesscontactlist
-            res.redirect('/survey-view');
+            res.redirect('survey-view');
         }
     });
 }
