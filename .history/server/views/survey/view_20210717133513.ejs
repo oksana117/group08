@@ -1,0 +1,62 @@
+<!-- Team: Group 8
+  Web site name : Pandora-Survey
+  Date : July 18, 2021
+  Author's names & Student IDs:
+  Oksana Koshulap: 301167025
+  Remedios Meneses: 300691712
+  Anmary Gain: 301152014 
+  Tesmine Poulose: 301151876
+  Sapna: 301152192 -->
+<%- include ../partials/header.ejs %>
+
+<%- include ../partials/main_nav.ejs %>
+
+
+<!-- view survey should have submit button--> 
+<!-- Main Content -->
+  <main class="container">
+    <div class="row">
+        <div class="offset-md-1 col-md-10">
+            <h1>Survey</h1>
+            
+
+            <br>
+            <br>
+            <div class="table-responsive">
+            <table class="table table-primary table-sm table-bordered table-striped table-hover ">
+                <!-- Header Row-->
+                <tr>
+                    <th class="text-center col-1">Question</th>
+                    <th class="text-center col-1">Answer</th>
+                  
+                   
+                 
+
+                </tr>
+                  
+                   <% for(let count = 0; count <QuestionsList.length; count++) { %>
+                    <tr>
+                        <tr class="text-center col-2"><%= QuestionsList.question %> </tr>
+                        <tr class="text-center col-2"><%= QuestionsList.question %> </tr>
+                        
+                        </tr>
+                        
+                      </tr>
+                        <% } %>
+                       
+          
+
+            
+              
+            </table>
+            </div>
+        </div>
+    </div>
+  </main>
+
+
+
+<%- include ../partials/bottom_nav.ejs %>  
+
+<%- include ../partials/footer.ejs %>
+  
