@@ -53,7 +53,8 @@ module.exports.displayCreatePage = (req, res, next) =>{
         "questionType": req.body.question4,
         "question": req.body.question5,
         "questionType": req.body.question5
-      
+        //question type
+        //question/survey id
         
     });
 
@@ -70,7 +71,7 @@ module.exports.displayCreatePage = (req, res, next) =>{
         }
     });
 
-  
+    // end loop here
 }
   module.exports.displayUpdatePage = (req, res, next) =>{
     let id = req.params.id;
