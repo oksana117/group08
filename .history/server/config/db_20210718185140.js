@@ -11,6 +11,7 @@
 
 module.exports =
 {
+    //"URI": "mongodb://localhost/business_contacts"
     //URI connection to a cluster collections 
     
     "URI": "mongodb://localhost/survey"
