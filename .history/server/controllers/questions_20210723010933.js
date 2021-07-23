@@ -44,7 +44,7 @@ module.exports.displayCreatePage = (req, res, next) =>{
     
     let newQuestions = Questions({
         "question": req.body.question,
-       // "questionType": req.body.question,
+        "questionType": req.body.question,
         
     });
 
@@ -75,7 +75,7 @@ module.exports.displayCreatePage = (req, res, next) =>{
         else
         {
             //show the edit view
-            res.render('survey/update', {title: 'Update Questions ', questions: questionToEdit})
+            res.render('survey/update', {title: 'Update ', question: questionToEdit})
         }
     });
 }
@@ -83,7 +83,7 @@ module.exports.displayCreatePage = (req, res, next) =>{
   module.exports.processUpdatePage= (req, res, next) =>{
     let id = req.params.id
 
-    let updatedSurvey =Questions({
+    let updatedSurvey =Survey({
         "_id": id,
         "question": req.body.question
     });

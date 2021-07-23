@@ -44,7 +44,7 @@ module.exports.displayCreatePage = (req, res, next) =>{
     
     let newQuestions = Questions({
         "question": req.body.question,
-       // "questionType": req.body.question,
+        "questionType": req.body.question,
         
     });
 
@@ -66,7 +66,7 @@ module.exports.displayCreatePage = (req, res, next) =>{
   module.exports.displayUpdatePage = (req, res, next) =>{
     let id = req.params.id;
 
-    Questions.findById(id, (err, questionToEdit) => {
+    Questions.findById(id, (err, surveyToEdit) => {
         if(err) 
         {
             console.log(err);
@@ -75,7 +75,7 @@ module.exports.displayCreatePage = (req, res, next) =>{
         else
         {
             //show the edit view
-            res.render('survey/update', {title: 'Update Questions ', questions: questionToEdit})
+            res.render('survey/update', {title: 'Update Survey', survey: surveyToEdit})
         }
     });
 }
@@ -83,7 +83,7 @@ module.exports.displayCreatePage = (req, res, next) =>{
   module.exports.processUpdatePage= (req, res, next) =>{
     let id = req.params.id
 
-    let updatedSurvey =Questions({
+    let updatedSurvey =Survey({
         "_id": id,
         "question": req.body.question
     });
@@ -106,7 +106,7 @@ module.exports.displayCreatePage = (req, res, next) =>{
   module.exports.performDelete = (req, res, next) =>{
     let id = req.params.id;
 
-    Questions.remove({_id: id}, (err) =>{
+    Survey.remove({_id: id}, (err) =>{
         if(err)
        {
            console.log(err);

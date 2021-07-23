@@ -14,7 +14,8 @@ let mongoose = require('mongoose');
 let  questionsModel = mongoose.Schema({
   
   question: String,
-  questionType:String,
+  questionType:
+    {type: String,
   surveyID: String,
   username: String
 },

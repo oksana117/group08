@@ -40,7 +40,7 @@
                     required>
                 </div></form>
                <td>
-                  <!-- <div class="form-check">
+                   <div class="form-check">
                     <input class="form-check-input" type="radio" name="question" id="SA" value="SA" checked >
                     <label class="form-check-label" for="question">
                         Short Answer
@@ -51,10 +51,10 @@
                     <label class="form-check-label" for="question">
                         True/False
                     </label>
-                    </div> -->
+                    </div>
                     <td>  <button class="btn btn-danger btn-sm" type="reset" value="Reset">  
                     <i class="fas fa-backspace"></i> Clear</button></td></a> 
-                     <a href="/survey-view/create/" class="btn btn-danger" role="button">
+                     <a href="/survey-view/create/<%= SurveyList[count]._id %>" class="btn btn-danger" role="button">
                    <i class="fas fa-plus-circle"></i> Add More</a> 
                    
                 </tr>
