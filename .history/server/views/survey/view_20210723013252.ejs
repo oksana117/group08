@@ -28,7 +28,7 @@
                 <tr>
                     <th class="text-center col-1">Question</th>
                     <th class="text-center col-1">Answer</th>
-                  
+                    <th class="text-center col-1"></th>
                   
                    
                  
@@ -38,32 +38,28 @@
                    <% for(let count = 0; count <QuestionsList.length; count++) { %>
                     <tr>
                         <td class="text-center col-2"><%= QuestionsList[count].question %>
-                        <br>
                         <a href="/survey-view/delete/<%= QuestionsList[count]._id %>" class="btn btn-danger btn-sm"> 
-                        <i class="fas fa-trash-alt"></i> Delete</a>
-                        <a  href="/survey-view/update/<%= QuestionsList[count]._id %>"class="btn btn-secondary btn-sm">
-                        <i class="fas fa-minus"></i> Edit Questions</a>
+                                    <i class="fas fa-trash-alt"></i> Delete</a>
                         
                          </td>
-                         <td class="text-center col-1">
-                        <input type="text" class="form-control"
-                         id="numberTextField"
-                          placeholder="Enter your answer here"
-                          name="questionsAnswer" required>
+                       </td>
+                        </tr>
+                         <tr> <a href="/survey-view/delete/<%= QuestionsList[count]._id %>" class="btn btn-danger btn-sm"> 
+                                    <i class="fas fa-trash-alt"></i> Delete</a></tr></td> 
+                                         <td class="text-center col-1">
+                                    <a  href="/survey-view/update/<%= QuestionsList[count]._id %>"class="btn btn-secondary btn-sm">
+                                    <i class="fas fa-minus"></i> Edit Questions</a></td>
+                        
                       </tr>
                         <% } %>
-             
 
+                       
+          
 
             
               
             </table>
             </div>
-                 <a href="/survey-list" > <button class="btn btn-primary" type="submit">
-                    <i class="fas fa-edit"></i> Submit</button> </a> 
-                
-                    <a href="/survey-list" class="btn btn-warning">
-                        <i class="fas fa-undo"></i> Cancel</a>
         </div>
     </div>
   </main>

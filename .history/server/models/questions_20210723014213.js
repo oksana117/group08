@@ -17,7 +17,7 @@ let  questionsModel = mongoose.Schema({
   questionType:String,
   surveyID: String,
   username: String,
-  questionsAnswer: String 
+  questionsAnswer
 },
 {
     collection: "questions"
