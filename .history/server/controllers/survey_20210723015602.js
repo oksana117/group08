@@ -47,7 +47,7 @@ module.exports.displaySurvey = (req, res, next) => {
     let newSurvey = Survey({
         "name": req.body.name,
         "author": req.body.author,
-        "endDate": req.body.endDate
+        "endDate": req.body.questionsNumber
     });
 
     Survey.create(newSurvey, (err, survey) =>{
@@ -88,7 +88,7 @@ module.exports.displaySurvey = (req, res, next) => {
         "_id": id,
         "name": req.body.name,
         "author": req.body.author,
-        "endDate": req.body.endDate
+        "questionsNumber": req.body.questionsNumber
     });
 
     Survey.updateOne({_id: id}, updatedSurvey, (err) =>{
