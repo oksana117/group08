@@ -117,7 +117,7 @@ module.exports.displaySurvey = (req, res, next) => {
        }
        else
        {
-            //refresh the businesscontactlist
+            //refresh the survey 
             res.redirect('/survey-list');
        }
     });

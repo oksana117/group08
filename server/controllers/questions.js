@@ -1,6 +1,6 @@
   /* Team: Group 8
   Web site name : Pandora-Survey
-  Date : July 18, 2021
+  Date : July 30, 2021
   Author's names & Student IDs:
   Oksana Koshulap: 301167025
   Remedios Meneses: 300691712
