@@ -36,7 +36,7 @@ let Questions = require('../models/questions');
   }
   
 module.exports.displayCreatePage = (req, res, next) => {
-     
+      req.bo
       res.render('survey/create', {title: 'Add New Survey',
       displayName: req.user ? req.user.displayName : ''});
   }

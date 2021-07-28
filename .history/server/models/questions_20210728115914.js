@@ -15,7 +15,6 @@ mongoose.Schema.Types.Boolean.convertToFalse.add('');
 let  questionsModel = mongoose.Schema({
   
   //question: String,
-  question: [],
   questionType: Boolean,
   surveyID: String,
   username: String,

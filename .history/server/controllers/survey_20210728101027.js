@@ -21,7 +21,7 @@
 
 
 module.exports.displaySurvey = (req, res, next) => {
-  
+    
     Survey.find((err, surveyList) => {
         if (err)
         {
@@ -51,9 +51,7 @@ module.exports.displaySurvey = (req, res, next) => {
         "endDate": req.body.endDate
     });
 
-      Survey.create(newSurvey, (err, survey) => {
-          req.body.name = req.user.author;
-          req.body.displayName = req.body.displayName;
+    Survey.create(newSurvey, (err, survey) =>{
         if(err)
         {
             console.log(err);
