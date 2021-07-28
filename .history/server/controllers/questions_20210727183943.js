@@ -62,24 +62,7 @@ module.exports.displayCreatePage = (req, res, next) =>{
     });
 
   
-  }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+}
   module.exports.displayUpdatePage = (req, res, next) =>{
     let id = req.params.id;
 
@@ -137,3 +120,20 @@ module.exports.displayCreatePage = (req, res, next) =>{
     });
   }
   
+app.get('????',function(req,res) {
+
+    mongoDB.connect(function(err){
+        if(err)
+            throw err;
+
+        var query = "select * from questions";
+
+        DB.query(query,function(err,result){
+            if(err)
+                throw err;
+            else {
+                 res.render('create.ejs', {questions: result });  
+            }
+        });
+    });
+});

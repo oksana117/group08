@@ -32,7 +32,7 @@
                 </tr>
                 <td class="text-center col-1" >1</td>  
                <td>  
-                <div class="form-group" id="question">
+                <div class="form-group">
                     <input type="text" class="form-control"
                     id="nameTextField"
                     placeholder="Enter a question"
@@ -53,10 +53,9 @@
                     </label>
                     </div> -->
                     <td>  <button class="btn btn-danger btn-sm" type="reset" value="Reset">  
-                    <i class="fas fa-backspace"></i> Clear</button></td>
-
-                     <button onclick=generate_table() class="Add" role="button" id="Add">
-                   <i class="fas fa-plus-circle"></i> Add More</button> 
+                    <i class="fas fa-backspace"></i> Clear</button></td></a> 
+                     <a href="/survey-view/create/" class="btn btn-danger" role="button">
+                   <i class="fas fa-plus-circle"></i> Add More</a> 
                    
                 </tr>
              
@@ -81,16 +80,23 @@
 </div>
 
 
-<%
-function generate_table() { 
- 
-  var body = document.getElementsById("question")[0];
 
- 
+
+
+<%- include ../partials/bottom_nav.ejs %>  
+
+<%- include ../partials/footer.ejs %>
+  
+
+  function generate_table() {
+  // get the reference for the body
+  var body = document.getElementsByTagName("body")[0];
+
+  // creates a <table> element and a <tbody> element
   var tbl = document.createElement("table");
   var tblBody = document.createElement("tbody");
 
- 
+  // creating all cells
   for (var i = 0; i < 2; i++) {
     // creates a table row
     var row = document.createElement("tr");
@@ -105,23 +111,14 @@ function generate_table() {
       row.appendChild(cell);
     }
 
-
+    // add the row to the end of the table body
     tblBody.appendChild(row);
   }
 
-  
+  // put the <tbody> in the <table>
   tbl.appendChild(tblBody);
-
+  // appends <table> into <body>
   body.appendChild(tbl);
- 
+  // sets the border attribute of tbl to 2;
   tbl.setAttribute("border", "2");
 }
-%>
-
-
-<%- include ../partials/bottom_nav.ejs %>  
-
-<%- include ../partials/footer.ejs %>
-  
-
-  

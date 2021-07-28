@@ -62,24 +62,7 @@ module.exports.displayCreatePage = (req, res, next) =>{
     });
 
   
-  }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+}
   module.exports.displayUpdatePage = (req, res, next) =>{
     let id = req.params.id;
 
@@ -137,3 +120,21 @@ module.exports.displayCreatePage = (req, res, next) =>{
     });
   }
   
+app.get('????',function(req,res) {
+    var dbClient = new db.Client(dbConnection);
+
+    dbClient.connect(function(err){
+        if(err)
+            throw err;
+
+        var query = "select * from Contacts";
+
+        dbClient.query(query,function(err,result){
+            if(err)
+                throw err;
+            else {
+                 res.render('contacts.ejs', { contacts: result });  
+            }
+        });
+    });
+});

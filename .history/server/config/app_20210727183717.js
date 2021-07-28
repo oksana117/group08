@@ -120,4 +120,21 @@ app.use(function(err, req, res, next) {
   
 module.exports = app;
 
+app.get('????',function(req,res) {
+    var dbClient = new db.Client(dbConnection);
 
+    dbClient.connect(function(err){
+        if(err)
+            throw err;
+
+        var query = "select * from questions";
+
+        dbClient.query(query,function(err,result){
+            if(err)
+                throw err;
+            else {
+                 res.render('c.ejs', { contacts: result });  
+            }
+        });
+    });
+});

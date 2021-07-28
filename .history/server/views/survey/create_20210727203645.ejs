@@ -81,8 +81,7 @@
 </div>
 
 
-<%
-function generate_table() { 
+<%function generate_table() { 
  
   var body = document.getElementsById("question")[0];
 
@@ -115,9 +114,10 @@ function generate_table() {
   body.appendChild(tbl);
  
   tbl.setAttribute("border", "2");
-}
-%>
-
+}%>
+<% document.getElementById("Add").addEventListener("onclick", generate_table)
+addEventListener("onclick", (event) => {
+    event.generate_table(); %>
 
 <%- include ../partials/bottom_nav.ejs %>  
 
