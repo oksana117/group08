@@ -16,14 +16,13 @@
   //let jwt = require('jsonwebtoken');
   
   //create a reference to the model
-    let Survey = require('../models/survey');
-  let Questions = require('../models/questions');
+  let Survey = require('../models/survey');
   
+  let Response = require('../models/questions');
 
 
 module.exports.displaySurvey = (req, res, next) => {
-  
-    Survey.find({ displayName: req.user.displayName }, (err, surveyList) => {
+    Survey.find((err, surveyList) => {
         if (err)
         {
             return console.error(err);
@@ -31,42 +30,36 @@ module.exports.displaySurvey = (req, res, next) => {
         else
         {
             
-           surveyList = surveyList.filter(i => i && i.endDate).filter(survey => {
-                let currentDate = new Date();
-                let previousDay = new Date(currentDate.getTime());
-                previousDay.setDate(previousDay.getDate() - 1);
-                const surveyDate = new Date(survey.endDate);
-                currentDate.setHours(0,0,0);
-                surveyDate.setHours(0,0,0);
-                if(surveyDate < previousDay){
-                    return false;
-                }
-                return true;
-            });
-            console.log(surveyList);
             res.render('survey/list', {
                 title: 'Survey List',
-                minDate: new Date(),
                 SurveyList: surveyList,
 
-            displayName: req.user ? req.user.displayName : ''});          
+            displayName: req.user ? req.user.displayName : ''});      
         }
     });
 }
   
   module.exports.displayAddPage = (req, res, next) =>{
-      res.render('survey/add', {title: 'Add New Survey',minDate: new Date().toISOString().split('T')[0],
+      res.render('survey/add', {title: 'Add New Survey',
       displayName: req.user ? req.user.displayName : ''});
   }
   
   module.exports.processAddPage = (req, res, next) => {
+    let select = req.body.selectpicker;
+    let test = '';
+    if(select == 'multipleChoice') {
+        test = 'Multiple Choice';
+    }
+    else {
+        test = 'Short Answer';
+    }
     let newSurvey = Survey({
         "name": req.body.name,
-        "displayName": req.body.displayName,
+        "author": req.body.author,
         "endDate": req.body.endDate
     });
 
-      Survey.create(newSurvey, (err, survey) => {
+    Survey.create(newSurvey, (err, survey) =>{
         if(err)
         {
             console.log(err);
@@ -92,7 +85,6 @@ module.exports.displaySurvey = (req, res, next) => {
         else
         {
             //show the edit view
-            //surveyToEdit.formattedDate = surveyToEdit.endDate.toISOString().split('T')[0]
             res.render('survey/edit', {title: 'Edit Survey', survey: surveyToEdit})
         }
     });
@@ -104,7 +96,7 @@ module.exports.displaySurvey = (req, res, next) => {
     let updatedSurvey =Survey({
         "_id": id,
         "name": req.body.name,
-        "displayName": req.body.displayName,
+        "author": req.body.author,
         "endDate": req.body.endDate
     });
 
@@ -140,4 +132,67 @@ module.exports.displaySurvey = (req, res, next) => {
     });
   }
   
+  module.exports.displayAnswerPage = (req, res, next) => {
+    
+    let id = req.params.id;
+
+    Survey.findById(id, (err, surveyToAnswer) => {
+        if(err)
+        {
+            console.log(err);
+            res.end(err);
+        }
+        else
+        {
+            //show the edit view
+            res.render('survey/answer', {title: 'Answer Survey', survey: surveyToAnswer})
+        }
+    });
+}
+
+module.exports.processAnswerPage = (req, res, next) => {
+        
+    let id = req.params.id
+    
+   
+
+    let newResponse = Response({
+        "_id": id,
+        "name": req.body.name,
+        "author": req.body.author,
+        "endDate": req.body.endDate
+    });
+
+    Response.create( newResponse, (err) => {
+        if(err)
+        {
+            console.log(err);
+            res.end(err);
+        }
+        else
+        {
+            // refresh the survey list
+            res.redirect('/survey-list');
+        }
+    }); 
+    
+}
+    
+module.exports.displayAnswerList = (req, res, next) => {
+    Response.find((err, responseList) => {
+        if(err)
+        {
+            return console.error(err);
+        }
+        else
+        {
+            //console.log(SurveyList);
+    
+            res.render('survey/answer_list', 
+            {title: 'Answers', 
+            ResponseList: responseList, 
+            displayName: req.user ? req.user.displayName : ''});      
+        }
+    });
+}
 
