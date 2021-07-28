@@ -12,7 +12,6 @@
 let express = require('express');
 let router = express.Router();
 let mongoose = require('mongoose');
-
 function requireAuth(req, res, next)
 {
     // check if the user is logged in
@@ -47,6 +46,6 @@ router.post('/edit/:id',requireAuth,  surveyController.processEditPage);
        
 
 /* GET Route to perform Deletion - DELETE Operation */
-router.get('/delete/:id',requireAuth, surveyController.performDelete);
+router.get('/delete/:id', surveyController.performDelete);
 
 module.exports = router;

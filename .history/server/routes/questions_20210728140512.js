@@ -39,14 +39,14 @@ router.post('/create/:id',requireAuth,  questionsController.processCreatePage);
     
 
 /* GET Route for displaying the update page - UPDATE Operation */
-router.get('/update/:id', requireAuth, questionsController.displayUpdatePage);
+router.get('/update/:id',  questionsController.displayUpdatePage);
      
 
 /* POST Route for processing the update page - UPDATE Operation */
-router.post('/update/:id', requireAuth, questionsController.processUpdatePage);
+router.post('/update/:id',  questionsController.processUpdatePage);
  
 //router.get('/view/:id', questionsController.displayNewSurvey);
 
-router.get('/delete/:id',requireAuth, questionsController.performDelete);
+router.get('/delete/:id', questionsController.performDelete);
 
 module.exports = router;

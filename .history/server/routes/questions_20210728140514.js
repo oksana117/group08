@@ -43,10 +43,10 @@ router.get('/update/:id', requireAuth, questionsController.displayUpdatePage);
      
 
 /* POST Route for processing the update page - UPDATE Operation */
-router.post('/update/:id', requireAuth, questionsController.processUpdatePage);
+router.post('/update/:id',  questionsController.processUpdatePage);
  
 //router.get('/view/:id', questionsController.displayNewSurvey);
 
-router.get('/delete/:id',requireAuth, questionsController.performDelete);
+router.get('/delete/:id', questionsController.performDelete);
 
 module.exports = router;

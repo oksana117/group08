@@ -27,7 +27,7 @@ let surveyController = require('../controllers/survey');
 
 
 /* GET Route for the Survey page - READ Operation */
-router.get('/', surveyController.displaySurvey);
+router.get('/', requireAuth,surveyController.displaySurvey);
 
 
 /* GET Route for displaying the Add page - CREATE Operation */
