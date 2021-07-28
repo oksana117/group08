@@ -76,7 +76,6 @@ module.exports.displaySurvey = (req, res, next) => {
         else
         {
             //refresh the survey-list
-            surveyToEdit.formattedDate = surveyToEdit.endDate.toISOString().split('T')[0]
             res.redirect('/survey-list');
         }
     });

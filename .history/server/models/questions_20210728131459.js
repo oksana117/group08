@@ -16,7 +16,7 @@ let  questionsModel = mongoose.Schema({
   
   //question: String,
   question: [],
-  questionType: Boolean  ,
+  questionType: [] Boolean,
   surveyID: String,
   username: String,
   questionsAnswer: String 

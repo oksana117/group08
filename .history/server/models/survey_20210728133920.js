@@ -9,24 +9,25 @@
   Sapna: 301152192 */
 
 let mongoose = require('mongoose');
-mongoose.Schema.Types.Boolean.convertToFalse.add('');
 
 //create a model class
-let  questionsModel = mongoose.Schema({
+let surveyModel = mongoose.Schema({
+  name: String,
+  displayName: String,
+  author: String,
   
-  //question: String,
-  question: [],
-  questionType: Boolean  ,
-  surveyID: String,
-  username: String,
-  questionsAnswer: String 
+  question: String,
+  startDate: Date,
+  endDate: String,
+  active: Boolean,
+  surveyID: String
 },
 {
-    collection: "questions"
+    collection: "survey"
 });
 
 
 
-module.exports = mongoose.model('Questions',   questionsModel);
+module.exports = mongoose.model('Survey', surveyModel);
 
 

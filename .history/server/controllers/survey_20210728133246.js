@@ -54,7 +54,7 @@ module.exports.displaySurvey = (req, res, next) => {
 }
   
   module.exports.displayAddPage = (req, res, next) =>{
-      res.render('survey/add', {title: 'Add New Survey',minDate: new Date().toISOString().split('T')[0],
+      res.render('survey/add', {title: 'Add New Survey',
       displayName: req.user ? req.user.displayName : ''});
   }
   
@@ -76,7 +76,6 @@ module.exports.displaySurvey = (req, res, next) => {
         else
         {
             //refresh the survey-list
-            surveyToEdit.formattedDate = surveyToEdit.endDate.toISOString().split('T')[0]
             res.redirect('/survey-list');
         }
     });

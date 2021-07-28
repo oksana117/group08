@@ -45,7 +45,7 @@ module.exports.displayCreatePage = (req, res, next) => {
     
     let newQuestions = Questions({
         "question": req.body.question,
-       // "questionType": req.body.question
+        "questionType": req.body.question
         
     });
 

@@ -19,9 +19,8 @@
   let Survey = require('../models/survey');
   
 
-
+ // survey hide 
 module.exports.displaySurvey = (req, res, next) => {
-  
     Survey.find((err, surveyList) => {
         if (err)
         {
@@ -29,8 +28,8 @@ module.exports.displaySurvey = (req, res, next) => {
         }
         else
         {
-            
-           surveyList = surveyList.filter(i => i && i.endDate).filter(survey => {
+            //console.log(new Date(surveyList.filter(survey => survey.author === "aasd")[0].endDate));
+            surveyList = surveyList.filter(i => i && i.endDate).filter(survey => {
                 let currentDate = new Date();
                 let previousDay = new Date(currentDate.getTime());
                 previousDay.setDate(previousDay.getDate() - 1);
@@ -48,7 +47,7 @@ module.exports.displaySurvey = (req, res, next) => {
                 minDate: new Date(),
                 SurveyList: surveyList,
 
-            displayName: req.user ? req.user.displayName : ''});          
+            displayName: req.user ? req.user.displayName : ''});      
         }
     });
 }
@@ -62,12 +61,11 @@ module.exports.displaySurvey = (req, res, next) => {
     let newSurvey = Survey({
         "name": req.body.name,
         "author": req.body.author,
-        "endDate": req.body.endDate
+        "questionsNumber": req.body.questionsNumber,
+        "endDate" : req.body.endDate
     });
 
-      Survey.create(newSurvey, (err, survey) => {
-          req.body.name = req.user.author;
-          req.body.displayName = req.body.displayName;
+    Survey.create(newSurvey, (err, survey) =>{
         if(err)
         {
             console.log(err);
@@ -76,7 +74,6 @@ module.exports.displaySurvey = (req, res, next) => {
         else
         {
             //refresh the survey-list
-            surveyToEdit.formattedDate = surveyToEdit.endDate.toISOString().split('T')[0]
             res.redirect('/survey-list');
         }
     });
@@ -94,6 +91,7 @@ module.exports.displaySurvey = (req, res, next) => {
         else
         {
             //show the edit view
+            surveyToEdit.formattedDate = surveyToEdit.endDate.toISOString().split('T')[0]
             res.render('survey/edit', {title: 'Edit Survey', survey: surveyToEdit})
         }
     });
@@ -106,7 +104,8 @@ module.exports.displaySurvey = (req, res, next) => {
         "_id": id,
         "name": req.body.name,
         "author": req.body.author,
-        "endDate": req.body.endDate
+        "questionsNumber": req.body.questionsNumber,
+        "endDate" : req.body.endDate        
     });
 
     Survey.updateOne({_id: id}, updatedSurvey, (err) =>{
@@ -117,7 +116,7 @@ module.exports.displaySurvey = (req, res, next) => {
         }
         else
         {
-            //refresh the survey list 
+            //refresh the businesscontactlist
             res.redirect('/survey-list');
 
         }
@@ -135,7 +134,7 @@ module.exports.displaySurvey = (req, res, next) => {
        }
        else
        {
-            //refresh the survey 
+            //refresh the businesscontactlist
             res.redirect('/survey-list');
        }
     });
