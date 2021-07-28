@@ -9,13 +9,14 @@
   Sapna: 301152192 */
 
 let mongoose = require('mongoose');
-mongoose.Schema.Types.Boolean.convertToFalse.add('');
 
 //create a model class
 let  questionsModel = mongoose.Schema({
   
   question: String,
-  questionType: Boolean,
+  questionType: {
+          
+        },
   surveyID: String,
   username: String,
   questionsAnswer: String 

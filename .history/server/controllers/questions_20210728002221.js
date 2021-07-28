@@ -44,7 +44,7 @@ module.exports.displayCreatePage = (req, res, next) =>{
     
     let newQuestions = Questions({
         "question": req.body.question,
-        //"questionType": req.body.question
+        "questionType": req.body.question
         
     });
 
@@ -70,7 +70,7 @@ module.exports.displayCreatePage = (req, res, next) =>{
   module.exports.displayUpdatePage = (req, res, next) =>{
     let id = req.params.id;
 
-    Questions.findById(id, (err, questionToEdit) => {
+    //Questions.findById(id, (err, questionToEdit) => {
         if(err) 
         {
             console.log(err);
@@ -90,7 +90,7 @@ module.exports.displayCreatePage = (req, res, next) =>{
     let updatedSurvey =Questions({
         "_id": id,
       "question": req.body.question,
-     // "questionType": req.body.question
+      "questionType": req.body.question
     });
 
     Questions.updateOne({_id: id}, updatedSurvey, (err) =>{

@@ -44,7 +44,7 @@ module.exports.displayCreatePage = (req, res, next) =>{
     
     let newQuestions = Questions({
         "question": req.body.question,
-        //"questionType": req.body.question
+        "questionType": req.body.question
         
     });
 
@@ -89,8 +89,7 @@ module.exports.displayCreatePage = (req, res, next) =>{
 
     let updatedSurvey =Questions({
         "_id": id,
-      "question": req.body.question,
-     // "questionType": req.body.question
+        "question": req.body.question
     });
 
     Questions.updateOne({_id: id}, updatedSurvey, (err) =>{
