@@ -16,7 +16,7 @@
   //let jwt = require('jsonwebtoken');
   
   //create a reference to the model
-    let Survey = require('../models/survey');
+let Survey = require('../models/survey');
   let Questions = require('../models/questions');
   
 
@@ -67,7 +67,7 @@ module.exports.displaySurvey = (req, res, next) => {
     });
 
       Survey.create(newSurvey, (err, survey) => {
-          req.body.username = req.user.author;
+          req.body.name = req.user.author;
           req.body.displayName = req.body.displayName;
         if(err)
         {
@@ -77,7 +77,7 @@ module.exports.displaySurvey = (req, res, next) => {
         else
         {
             //refresh the survey-list
-            //surveyToEdit.formattedDate = surveyToEdit.endDate.toISOString().split('T')[0]
+            surveyToEdit.formattedDate = surveyToEdit.endDate.toISOString().split('T')[0]
             res.redirect('/survey-list');
         }
     });

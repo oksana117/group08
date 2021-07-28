@@ -67,8 +67,8 @@ module.exports.displaySurvey = (req, res, next) => {
     });
 
       Survey.create(newSurvey, (err, survey) => {
-          req.body.username = req.user.author;
-          req.body.displayName = req.body.displayName;
+          //req.body.username = req.user.author;
+          //req.body.displayName = req.body.displayName;
         if(err)
         {
             console.log(err);

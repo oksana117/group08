@@ -67,8 +67,8 @@ module.exports.displaySurvey = (req, res, next) => {
     });
 
       Survey.create(newSurvey, (err, survey) => {
-          req.body.username = req.user.author;
-          req.body.displayName = req.body.displayName;
+          //req.body.username = req.user.author;
+          //req.body.displayName = req.body.displayName;
         if(err)
         {
             console.log(err);
@@ -77,7 +77,7 @@ module.exports.displaySurvey = (req, res, next) => {
         else
         {
             //refresh the survey-list
-            //surveyToEdit.formattedDate = surveyToEdit.endDate.toISOString().split('T')[0]
+            surveyToEdit.formattedDate = surveyToEdit.endDate.toISOString().split('T')[0]
             res.redirect('/survey-list');
         }
     });
