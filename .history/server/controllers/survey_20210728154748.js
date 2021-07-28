@@ -67,6 +67,8 @@ module.exports.displaySurvey = (req, res, next) => {
     });
 
       Survey.create(newSurvey, (err, survey) => {
+          req.body.username = req.user.displayName;
+          req.body.displayName = req.body.displayName;
         if(err)
         {
             console.log(err);
@@ -104,7 +106,7 @@ module.exports.displaySurvey = (req, res, next) => {
     let updatedSurvey =Survey({
         "_id": id,
         "name": req.body.name,
-        "displayName": req.body.displayName,
+        "username": req.body.displayName,
         "endDate": req.body.endDate
     });
 

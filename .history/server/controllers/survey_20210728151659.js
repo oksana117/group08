@@ -23,7 +23,8 @@
 
 module.exports.displaySurvey = (req, res, next) => {
   
-    Survey.find({ displayName: req.user.displayName }, (err, surveyList) => {
+    Survey.find({displayName: req.user.displayName
+         (err, surveyList) => {
         if (err)
         {
             return console.error(err);
@@ -67,6 +68,8 @@ module.exports.displaySurvey = (req, res, next) => {
     });
 
       Survey.create(newSurvey, (err, survey) => {
+          req.body.username = req.user.displayName;
+          req.body.displayName = req.body.displayName;
         if(err)
         {
             console.log(err);

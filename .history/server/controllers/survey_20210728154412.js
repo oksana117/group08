@@ -62,11 +62,13 @@ module.exports.displaySurvey = (req, res, next) => {
   module.exports.processAddPage = (req, res, next) => {
     let newSurvey = Survey({
         "name": req.body.name,
-        "displayName": req.body.displayName,
+        //"displayName": req.body.displayName,
         "endDate": req.body.endDate
     });
 
       Survey.create(newSurvey, (err, survey) => {
+          req.body.username = req.user.displayName;
+          req.body.displayName = req.body.displayName;
         if(err)
         {
             console.log(err);

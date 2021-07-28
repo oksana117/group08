@@ -23,7 +23,7 @@
 
 module.exports.displaySurvey = (req, res, next) => {
   
-    Survey.find({ displayName: req.user.displayName }, (err, surveyList) => {
+    Survey.find((err, surveyList) => {
         if (err)
         {
             return console.error(err);
@@ -62,11 +62,13 @@ module.exports.displaySurvey = (req, res, next) => {
   module.exports.processAddPage = (req, res, next) => {
     let newSurvey = Survey({
         "name": req.body.name,
-        "displayName": req.body.displayName,
+        "author": req.body.author,
         "endDate": req.body.endDate
     });
 
       Survey.create(newSurvey, (err, survey) => {
+          req.body.username = req.user.author;
+          req.body.displayName = req.body.displayName;
         if(err)
         {
             console.log(err);
@@ -92,7 +94,7 @@ module.exports.displaySurvey = (req, res, next) => {
         else
         {
             //show the edit view
-            //surveyToEdit.formattedDate = surveyToEdit.endDate.toISOString().split('T')[0]
+            surveyToEdit.formattedDate = surveyToEdit.endDate.toISOString().split('T')[0]
             res.render('survey/edit', {title: 'Edit Survey', survey: surveyToEdit})
         }
     });
@@ -104,7 +106,7 @@ module.exports.displaySurvey = (req, res, next) => {
     let updatedSurvey =Survey({
         "_id": id,
         "name": req.body.name,
-        "displayName": req.body.displayName,
+        "author": req.body.author,
         "endDate": req.body.endDate
     });
 

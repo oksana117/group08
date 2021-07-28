@@ -38,13 +38,13 @@
                  
 
                 </tr>
-              
+                 <!-- <td class="text-center col-2"><%= SurveyList[count].displayName %></td> 
                 <!-- Repeatable Template Row  that lists contacts alphabetically -->
                 <% for(let count = 0; count <SurveyList.length; count++) { %>
                  <%SurveyList.sort((a,b)=> (a.name<b.name)*-1);%> 
                     <tr>
                         <td class="text-center col-2"><%= SurveyList[count].name %> </td>
-                        <td class="text-center col-2"><%= SurveyList[count].displayName %></td> 
+                        
                         <td class="text-center col-4"><%= SurveyList[count].endDate%></td>
                                     <td class="text-center col-1">
                                     <a href="/survey-list/edit/<%= SurveyList[count]._id %>" class="btn btn-primary btn-sm">

@@ -23,7 +23,7 @@
 
 module.exports.displaySurvey = (req, res, next) => {
   
-    Survey.find({ displayName: req.user.displayName }, (err, surveyList) => {
+    Survey.find( (err, surveyList) => {
         if (err)
         {
             return console.error(err);
@@ -56,7 +56,7 @@ module.exports.displaySurvey = (req, res, next) => {
   
   module.exports.displayAddPage = (req, res, next) =>{
       res.render('survey/add', {title: 'Add New Survey',minDate: new Date().toISOString().split('T')[0],
-      displayName: req.user ? req.user.displayName : ''});
+      displayName: req.user ? req.user{ displayName: req.user.displayName },.displayName : ''});
   }
   
   module.exports.processAddPage = (req, res, next) => {
@@ -67,6 +67,8 @@ module.exports.displaySurvey = (req, res, next) => {
     });
 
       Survey.create(newSurvey, (err, survey) => {
+          req.body.username = req.user.displayName;
+          req.body.displayName = req.body.displayName;
         if(err)
         {
             console.log(err);
