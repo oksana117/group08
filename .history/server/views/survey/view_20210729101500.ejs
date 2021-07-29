@@ -40,12 +40,11 @@
                         <td class="text-center col-2"><%= QuestionsList[count].question %>
 
                         <br>
-                         <% if(typeof displayName == 'string' && displayName) { %>
+                        
                         <a href="/survey-view/delete/<%= QuestionsList[count]._id %>" class="btn btn-danger btn-sm"> 
                         <i class="fas fa-trash-alt"></i> Delete</a><%} %>
-                         <% if(typeof displayName == 'string' && displayName) { %>
                         <a  href="/survey-view/update/<%= QuestionsList[count]._id %>"class="btn btn-secondary btn-sm">
-                        <i class="fas fa-minus"></i> Edit Questions</a> <%} %>
+                        <i class="fas fa-minus"></i> Edit Questions</a>
                         
                          </td>
                          <td class="text-center col-1">
