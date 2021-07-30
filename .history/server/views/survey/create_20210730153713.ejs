@@ -40,7 +40,23 @@
                     required>
                 </div></form>
                <td>
-               <input class="form-check-input" type="radio" name="questionType" id="SA" value="SA" checked >
+
+        <!--  second row --> 
+             <div class="form-check">
+               </tr>
+                <td class="text-center col-1">1</td>  
+               <td>  
+                <div class="form-group" id="question">
+                    <input type="text" class="form-control"
+                    id="nameTextField"
+                    placeholder="Enter a question"
+                    name="question"
+                    required>
+                </div></form>
+               <td>
+             <div class="form-check">
+
+                    <input class="form-check-input" type="radio" name="questionType" id="SA" value="SA" checked >
                     <label class="form-check-label" for="question">
                         Short Answer
                     </label>
@@ -54,7 +70,9 @@
 
                     <td>  <button class="btn btn-danger btn-sm" type="reset" value="Reset">  
                     <i class="fas fa-backspace"></i> Clear</button></td>
-           
+
+                     <button onclick=generate_table() class="Add" role="button" id="Add">
+                   <i class="fas fa-plus-circle"></i> Add More</button> 
                    
                 </tr>
              
@@ -64,10 +82,9 @@
                  
                         </tr>
                </table>
-               <!-- <a  href="/survey-view" > <button class="btn btn-primary" type="submit">
-                    <i class="fas fa-edit"></i> Generate Survey</button> </a>  -->
-                  <a  href="/survey-view" ><button class="btn btn-success" type="submit">
-                   <i class="fas fa-plus-square"></i> Add More Questions</button> </a>
+                <a  href="/survey-view" > <button class="btn btn-primary" type="submit">
+                    <i class="fas fa-edit"></i> Generate Survey</button> </a> 
+                
                     <a href="/survey-list" class="btn btn-warning">
                         <i class="fas fa-undo"></i> Cancel</a>
                  </div>

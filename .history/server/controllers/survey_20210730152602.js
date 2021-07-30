@@ -105,7 +105,7 @@ module.exports.displaySurvey = (req, res, next) => {
     let updatedSurvey =Survey({
         "_id": id,
         "name": req.body.name,
-        "author": req.body.author,
+        "displayName": req.body.displayName,
         "endDate": req.body.endDate
     });
 

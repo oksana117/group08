@@ -16,7 +16,7 @@ let express = require('express');
   
   //create a reference to the model
 let Questions = require('../models/questions');
-  let Survey = require('../models/survey');
+let 
 
   module.exports.displayView= (req, res, next) => {
     Questions.find((err, questionList) => {
