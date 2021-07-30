@@ -23,7 +23,6 @@
 
 module.exports.displaySurvey = (req, res, next) => {
   
-    //{ displayName: req.user.displayName },
     Survey.find( (err, surveyList) => {
         if (err)
         {
