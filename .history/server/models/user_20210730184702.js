@@ -1,10 +1,19 @@
-/* Oksana Koshulap, 301167025, June 18, 2021 */
+/* Team: Group 8
+  Web site name : Pandora-Survey
+  Date : July 18, 2021
+  Author's names & Student IDs:
+  Oksana Koshulap: 301167025
+  Remedios Meneses: 300691712
+  Anmary Gain: 301152014 
+  Tesmine Poulose: 301151876
+  Sapna: 301152192 */
+
 
 // require modules for the User Model
 let mongoose = require('mongoose');
 let passportLocalMongoose = require('passport-local-mongoose');
 
-
+//creating user schema 
 
 let User = mongoose.Schema
 (
@@ -17,14 +26,14 @@ let User = mongoose.Schema
             required: 'Username is required'
         },
         /*
-        password: 
+        surveyID: 
         {
             type: String,
             default: '';
             trim: true,
-            required: 'password is required'
+           
         }
-        */
+        
        email: 
        {
             type: String,

@@ -31,6 +31,7 @@ module.exports.displaySurvey = (req, res, next) => {
         }
         else
         {
+            
            surveyList = surveyList.filter(i => i && i.endDate).filter(survey => {
                 let currentDate = new Date();
                 let previousDay = new Date(currentDate.getTime());

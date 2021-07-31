@@ -15,22 +15,23 @@
   
   //let jwt = require('jsonwebtoken');
   
-//create a reference to the model
-let Survey = require('../models/survey');
-let Questions = require('../models/questions');
+  //create a reference to the model
+    let Survey = require('../models/survey');
+  let Questions = require('../models/questions');
   
 
 
 module.exports.displaySurvey = (req, res, next) => {
   
     //{ displayName: req.user.displayName },
-    Survey.find({ displayName: req.user.displayName }, (err, surveyList) => {
+    Survey.find( (err, surveyList) => {
         if (err)
         {
             return console.error(err);
         }
         else
         {
+            
            surveyList = surveyList.filter(i => i && i.endDate).filter(survey => {
                 let currentDate = new Date();
                 let previousDay = new Date(currentDate.getTime());
@@ -62,7 +63,7 @@ module.exports.displaySurvey = (req, res, next) => {
   module.exports.processAddPage = (req, res, next) => {
     let newSurvey = Survey({
         "name": req.body.name,
-        "displayName": req.body.displayName,
+        "author": req.body.author,
         "endDate": req.body.endDate
     });
 
@@ -104,7 +105,7 @@ module.exports.displaySurvey = (req, res, next) => {
     let updatedSurvey =Survey({
         "_id": id,
         "name": req.body.name,
-        "displayName": req.body.displayName,
+        "author": req.body.author,
         "endDate": req.body.endDate
     });
 

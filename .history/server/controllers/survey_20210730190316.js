@@ -15,22 +15,23 @@
   
   //let jwt = require('jsonwebtoken');
   
-//create a reference to the model
-let Survey = require('../models/survey');
-let Questions = require('../models/questions');
+  //create a reference to the model
+    let Survey = require('../models/survey');
+  let Questions = require('../models/questions');
   
 
 
 module.exports.displaySurvey = (req, res, next) => {
   
     //{ displayName: req.user.displayName },
-    Survey.find({ displayName: req.user.displayName }, (err, surveyList) => {
+    Survey.find( (err, surveyList) => {
         if (err)
         {
             return console.error(err);
         }
         else
         {
+            
            surveyList = surveyList.filter(i => i && i.endDate).filter(survey => {
                 let currentDate = new Date();
                 let previousDay = new Date(currentDate.getTime());

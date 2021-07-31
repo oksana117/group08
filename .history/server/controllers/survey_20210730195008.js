@@ -17,7 +17,7 @@
   
 //create a reference to the model
 let Survey = require('../models/survey');
-let Questions = require('../models/questions');
+  let Questions = require('../models/questions');
   
 
 
@@ -31,6 +31,7 @@ module.exports.displaySurvey = (req, res, next) => {
         }
         else
         {
+            
            surveyList = surveyList.filter(i => i && i.endDate).filter(survey => {
                 let currentDate = new Date();
                 let previousDay = new Date(currentDate.getTime());
