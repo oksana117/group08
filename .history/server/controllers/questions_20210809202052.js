@@ -168,7 +168,7 @@ module.exports.displayAnswerPage = (req, res, next) => {
          else
          {
              // refresh the survey list
-             res.redirect('/survey-answer');
+             res.redirect('/survey-list');
          }
      }); 
 
@@ -184,7 +184,7 @@ module.exports.displayAnswerPage = (req, res, next) => {
          {
              //console.log(SurveyList);
 
-             res.render('survey-answer', 
+             res.render('survey/answer-list', 
              {title: 'Answers', 
              ResponseList: responseList, 
              displayName: req.user ? req.user.displayName : ''});      

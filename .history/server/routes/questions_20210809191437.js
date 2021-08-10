@@ -50,12 +50,11 @@ router.post('/update/:id', requireAuth, questionsController.processUpdatePage);
 router.get('/delete/:id', requireAuth, questionsController.performDelete);
 
 /* GET to perform Answer - ANSWER Operation */
-router.get('/answer/:id', questionsController.displayAnswerPage);
+router.get('/answer/:id', surveyController.displayAnswerPage);
 
-/* POST to perform  Answer - ANSWER Operation */
-router.post('/answer/:id', questionsController.processAnswerPage);
+ /* POST to perform  Answer - ANSWER Operation */
+ router.post('/answer/:id', surveyController.processAnswerPage);
 
  /* GET Route for the Answer List page - READ Operation */
- router.get('/answer', requireAuth, questionsController.displayAnswerList);
-
+ router.get('/answer', requireAuth, surveyController.displayAnswerList);
 module.exports = router;

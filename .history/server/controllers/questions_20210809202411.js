@@ -168,7 +168,7 @@ module.exports.displayAnswerPage = (req, res, next) => {
          else
          {
              // refresh the survey list
-             res.redirect('/survey-answer');
+             res.redirect('/survey-list');
          }
      }); 
 

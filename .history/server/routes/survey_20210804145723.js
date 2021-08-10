@@ -49,6 +49,13 @@ router.post('/edit/:id',requireAuth,  surveyController.processEditPage);
 /* GET Route to perform Deletion - DELETE Operation */
 router.get('/delete/:id', requireAuth, surveyController.performDelete);
 
+/* GET to perform Answer - ANSWER Operation */
+router.get('/answer/:id', surveyController.displayAnswerPage);
 
+ /* POST to perform  Answer - ANSWER Operation */
+ router.post('/answer/:id', surveyController.processAnswerPage);
+
+ /* GET Route for the Answer List page - READ Operation */
+ router.get('/answers', requireAuth, surveyController.displayAnswerList);
 
 module.exports = router;
