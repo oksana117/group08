@@ -1,3 +1,6 @@
+
+
+
   /* Team: Group 8
   Web site name : Pandora-Survey
   Date : July 30, 2021
@@ -15,7 +18,7 @@ let express = require('express');
   //let jwt = require('jsonwebtoken');
   
   //create a reference to the model
-  let Questions = require('../models/questions');
+  let Questions = require('../models/');
   let Survey = require('../models/survey');
 
   module.exports.displayView= (req, res, next) => {

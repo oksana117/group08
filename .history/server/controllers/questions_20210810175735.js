@@ -127,3 +127,65 @@ module.exports.displayCreatePage = (req, res, next) => {
     });
   }
   
+module.exports.displayAnswerPage = (req, res, next) => {
+
+     let id = req.params.id;
+
+     Questions.findById(id, (err, surveyToAnswer) => {
+         if(err)
+         {
+             console.log(err);
+             res.end(err);
+         }
+         else
+         {
+             //show the edit view
+             res.render('survey/answer', {title: 'Answer Survey', survey: surveyToAnswer})
+         }
+     });
+ }
+
+ module.exports.processAnswerPage = (req, res, next) => {
+
+     let id = req.params.id
+
+
+
+     let newResponse = Response({
+         "_id": id,
+         "name": req.body.name,
+         "questionAnswer": req.body.questionAnswer
+     });
+
+     Response.create( newResponse, (err) => {
+         if(err)
+         {
+             console.log(err);
+             res.end(err);
+         }
+         else
+         {
+             // refresh the survey list
+             res.redirect('/survey-answer');
+         }
+     }); 
+
+ }
+
+ module.exports.displayAnswerList = (req, res, next) => {
+     Response.find((err, responseList) => {
+         if(err)
+         {
+             return console.error(err);
+         }
+         else
+         {
+             //console.log(SurveyList);
+
+             res.render('survey-answer', 
+             {title: 'Answers', 
+             ResponseList: responseList, 
+             displayName: req.user ? req.user.displayName : ''});      
+         }
+     });
+ }

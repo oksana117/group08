@@ -1,3 +1,6 @@
+
+
+
   /* Team: Group 8
   Web site name : Pandora-Survey
   Date : July 30, 2021
@@ -16,9 +19,9 @@ let express = require('express');
   
   //create a reference to the model
   let Questions = require('../models/questions');
-  let Survey = require('../models/survey');
+  //let Survey = require('../models/survey');
 
-  module.exports.displayView= (req, res, next) => {
+  module.exports.displayAnswer= (req, res, next) => {
     Questions.find((err, questionList) => {
         if (err)
         {
@@ -27,7 +30,7 @@ let express = require('express');
         else
         {
             
-            res.render('survey/view', {
+            res.render('survey/answer', {
                 title: 'Questions List',
                   QuestionsList: questionList,
 
@@ -65,51 +68,7 @@ module.exports.displayCreatePage = (req, res, next) => {
 
   
   }
-
-
-
-
-  module.exports.displayUpdatePage = (req, res, next) =>{
-    let id = req.params.id;
-
-    Questions.findById(id, (err, questionToEdit) => {
-        if(err) 
-        {
-            console.log(err);
-            res.end(err);
-        }
-        else
-        {
-            //show the edit view
-            res.render('survey/update', {title: 'Update Questions ', questions: questionToEdit})
-        }
-    });
-}
-  
-  module.exports.processUpdatePage= (req, res, next) =>{
-    let id = req.params.id
-
-    let updatedSurvey =Questions({
-        "_id": id,
-      "question": req.body.question,
-     // "questionType": req.body.question
-    });
-
-    Questions.updateOne({_id: id}, updatedSurvey, (err) =>{
-        if(err)
-        {
-            console.log(err);
-            res.end(err);
-        }
-        else
-        {
-            //refresh the survey
-            res.redirect('/survey-view');
-
-        }
-    });
-}
-  
+ 
   module.exports.performDelete = (req, res, next) =>{
     let id = req.params.id;
 
@@ -122,7 +81,7 @@ module.exports.displayCreatePage = (req, res, next) => {
        else
        {
             //refresh the refresh survey
-            res.redirect('/survey-view');
+            res.redirect('/survey-answer');
        }
     });
   }

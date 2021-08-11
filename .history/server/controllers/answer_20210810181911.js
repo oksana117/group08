@@ -1,3 +1,6 @@
+
+
+
   /* Team: Group 8
   Web site name : Pandora-Survey
   Date : July 30, 2021
@@ -16,7 +19,7 @@ let express = require('express');
   
   //create a reference to the model
   let Questions = require('../models/questions');
-  let Survey = require('../models/survey');
+  //let Survey = require('../models/survey');
 
   module.exports.displayView= (req, res, next) => {
     Questions.find((err, questionList) => {
@@ -36,40 +39,7 @@ let express = require('express');
     });
   }
   
-module.exports.displayCreatePage = (req, res, next) => {
-     
-      res.render('survey/create', {title: 'Add New Survey',
-      displayName: req.user ? req.user.displayName : ''});
-  }
-  
-  module.exports.processCreatePage = (req, res, next) => {
-    
-    let newQuestions = Questions({
-        "question": req.body.question,
-       // "questionType": req.body.question
-        
-    });
-
-    Questions.create(newQuestions , (err, question) =>{
-        if(err)
-        {
-            console.log(err);
-            res.send(err);
-        }
-        else
-        {
-            //refresh the surveys
-            res.redirect('/survey-view');
-        }
-    });
-
-  
-  }
-
-
-
-
-  module.exports.displayUpdatePage = (req, res, next) =>{
+module.exports.displayUpdatePage = (req, res, next) =>{
     let id = req.params.id;
 
     Questions.findById(id, (err, questionToEdit) => {
@@ -81,7 +51,7 @@ module.exports.displayCreatePage = (req, res, next) => {
         else
         {
             //show the edit view
-            res.render('survey/update', {title: 'Update Questions ', questions: questionToEdit})
+            res.render('survey/', {title: 'Update Questions ', questions: questionToEdit})
         }
     });
 }
@@ -91,7 +61,7 @@ module.exports.displayCreatePage = (req, res, next) => {
 
     let updatedSurvey =Questions({
         "_id": id,
-      "question": req.body.question,
+      "questionAnswer": req.body.question,
      // "questionType": req.body.question
     });
 

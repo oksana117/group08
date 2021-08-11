@@ -22,7 +22,7 @@ function requireAuth(req, res, next)
     }
     next();
 }
-let questionsController = require('../controllers/questions');
+let questionsController = require('../controllers/answers');
 
 
 /* GET Route for displaying the view page - CREATE Operation */
@@ -44,10 +44,6 @@ router.get('/update/:id', requireAuth, questionsController.displayUpdatePage);
 
 /* POST Route for processing the update page - UPDATE Operation */
 router.post('/update/:id', requireAuth, questionsController.processUpdatePage);
- 
-//router.get('/view/:id', questionsController.displayNewSurvey);
-
-router.get('/delete/:id', requireAuth, questionsController.performDelete);
 
 
 module.exports = router;

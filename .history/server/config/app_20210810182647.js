@@ -41,11 +41,10 @@ mongoDB.once('open', ()=>{
 
 //routers set up
 
-let indexRouter = require('../routes/index');
+let  indexRouter = require('../routes/index');
 let usersRouter = require('../routes/users');
 let surveyRouter = require('../routes/survey');
-let questionsRouter = require('../routes/questions');
-let answerRouter = require('../routes/answer');
+let questionsRouter = require('../routes/answer')
 
 
 let  app = express();
@@ -99,7 +98,7 @@ app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/survey-list', surveyRouter);
 app.use('/survey-view', questionsRouter);
-app.use('/survey-answer', answerRouter);
+app.use('/survey-answer', questionsRouter);
 
 //app.use('/business-list', businessRouter);
 

@@ -1,3 +1,6 @@
+
+
+
   /* Team: Group 8
   Web site name : Pandora-Survey
   Date : July 30, 2021
@@ -16,7 +19,7 @@ let express = require('express');
   
   //create a reference to the model
   let Questions = require('../models/questions');
-  let Survey = require('../models/survey');
+  //let Survey = require('../models/survey');
 
   module.exports.displayView= (req, res, next) => {
     Questions.find((err, questionList) => {
@@ -36,13 +39,13 @@ let express = require('express');
     });
   }
   
-module.exports.displayCreatePage = (req, res, next) => {
+module.exports.displayAnswerPage = (req, res, next) => {
      
       res.render('survey/create', {title: 'Add New Survey',
       displayName: req.user ? req.user.displayName : ''});
   }
   
-  module.exports.processCreatePage = (req, res, next) => {
+  module.exports.processAnswerPage = (req, res, next) => {
     
     let newQuestions = Questions({
         "question": req.body.question,

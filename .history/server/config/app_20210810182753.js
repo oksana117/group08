@@ -41,7 +41,7 @@ mongoDB.once('open', ()=>{
 
 //routers set up
 
-let indexRouter = require('../routes/index');
+let  indexRouter = require('../routes/index');
 let usersRouter = require('../routes/users');
 let surveyRouter = require('../routes/survey');
 let questionsRouter = require('../routes/questions');

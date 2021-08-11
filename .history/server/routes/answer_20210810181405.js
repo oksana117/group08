@@ -22,32 +22,27 @@ function requireAuth(req, res, next)
     }
     next();
 }
-let questionsController = require('../controllers/questions');
+let answerController = require('../controllers/answer');
 
 
 /* GET Route for displaying the view page - CREATE Operation */
-router.get('/', questionsController.displayView);
+router.get('/', answerController.displayView);
 
-//router.get('/survey/view', questionsController.displayView);
 
 /* GET Route for displaying the create page - CREATE Operation */
-router.get('/create/:id', requireAuth, questionsController.displayCreatePage);  
+router.get('/create/:id', requireAuth, answerController.displayCreatePage);  
 
 
 /* POST Route for processing the create page - CREATE Operation */
-router.post('/create/:id',requireAuth,  questionsController.processCreatePage);
+router.post('/create/:id',requireAuth,  answerController.processCreatePage);
     
 
 /* GET Route for displaying the update page - UPDATE Operation */
-router.get('/update/:id', requireAuth, questionsController.displayUpdatePage);
+router.get('/update/:id', requireAuth, answerController.displayUpdatePage);
      
 
 /* POST Route for processing the update page - UPDATE Operation */
 router.post('/update/:id', requireAuth, questionsController.processUpdatePage);
- 
-//router.get('/view/:id', questionsController.displayNewSurvey);
-
-router.get('/delete/:id', requireAuth, questionsController.performDelete);
 
 
 module.exports = router;

@@ -29,9 +29,12 @@
                   
                     <th class="text-center col-2">Question</th>
                     <th class="text-center col-2">Answer</th>
-                    <th class="text-center col-4">PDF</th>
-       
-                    
+                    <th class="text-center col-4">Pdf</th>
+                    <th class="text-center col-1"></th>
+                    <th class="text-center col-1"></th>
+                    <th class="text-center col-1"></th>
+                    <th class="text-center col-1"></th>
+                   
                  
 
                 </tr>
@@ -39,14 +42,23 @@
                 <!-- Repeatable Template Row  that lists contacts alphabetically -->
                 <% for(let count = 0; count <QuestionsList.length; count++) { %>
                     <tr>
-                       
-                         <td class="text-center col-2"><%= QuestionsList[count].question %></td> 
-                          <td class="text-center col-2"><%= QuestionsList[count].questionsAnswer%> </td>
                      
-                              
+                                    <td class="text-center col-1">
+                                    <% if(typeof displayName == 'string' && displayName) { %>
+                                    <a href="/survey-list/edit/<%= ResponseLis[count]._id %>" class="btn btn-primary btn-sm">
+                                    <i class="fas fa-pencil-alt"></i> Update Details</a></td><%} %>
+                                    <td class="text-center col-1">
+                                     <% if(typeof displayName == 'string' && displayName) { %>
+                                    <a href="/survey-list/delete/<%= ResponseLis[count]._id %>" class="btn btn-danger btn-sm">
+                                    <i class="fas fa-trash-alt"></i> Delete</a><%} %>
+                                     <td class="text-center col-1">
+                                       <% if(typeof displayName == 'string' && displayName) { %>
+                                     <a href="/survey-view/create/<%= ResponseList[count]._id %>" class="btn btn-info btn-sm">
+                                    <i class="fas fa-plus"></i> Add Questions </a></td> <%} %>
+                               
                                      <td class="text-center col-1">
                                     <a  href="/survey-view"class="btn btn-success btn-sm">
-                                    <i class="fas fa-search"></i> Print PDF</a></td>
+                                    <i class="fas fa-search"></i> Start Survey</a></td>
                                     
                         </td></tr>
                        
