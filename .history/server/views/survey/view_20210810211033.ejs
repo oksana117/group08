@@ -52,13 +52,13 @@
                          </td>
                          <td class="text-center col-1">
                             <div class="form-group">
-                             
-                            <input type="text" class="form-control"
-                              id="nameATextField"
-                              placeholder="Enter your answer here"
-                              name="questionsAnswer" required>
-                              </div>
-                          </tr>
+                            <td class="text-center col-2"><%= QuestionsList[count].question %>
+                        <input type="text" class="form-control"
+                          id="nameATextField"
+                          placeholder="Enter your answer here"
+                          name="questionsAnswer" required>
+                          </div>
+                      </tr>
                         <% } %>
                         
              
@@ -71,7 +71,7 @@
            
 
                 <!-- /survey-list -->
-                 <a href="/" > <button class="btn btn-primary" type="submit">
+                 <a href="/survey-answer" > <button class="btn btn-primary" type="submit">
                     <i class="fas fa-edit"></i> Submit</button> </a> 
                     
                     <!--

@@ -19,7 +19,7 @@ let  questionsModel = mongoose.Schema({
   questionType: Boolean  ,
   surveyID: String,
   author: String,
-  questionsAnswer: String
+  questionsAnswer: []
 },
 {
     collection: "questions"

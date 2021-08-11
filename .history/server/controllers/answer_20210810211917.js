@@ -1,3 +1,6 @@
+
+
+
   /* Team: Group 8
   Web site name : Pandora-Survey
   Date : July 30, 2021
@@ -18,7 +21,7 @@ let express = require('express');
   let Questions = require('../models/questions');
   let Survey = require('../models/survey');
 
-  module.exports.displayView= (req, res, next) => {
+  module.exports.displayAnswer= (req, res, next) => {
     Questions.find((err, questionList) => {
         if (err)
         {
@@ -27,8 +30,8 @@ let express = require('express');
         else
         {
             
-            res.render('survey/view', {
-                title: 'Questions List',
+            res.render('survey/answer', {
+                title: 'Survey Answers',
                   QuestionsList: questionList,
 
             displayName: req.user ? req.user.displayName : ''});      
@@ -36,16 +39,44 @@ let express = require('express');
     });
   }
   
-module.exports.displayCreatePage = (req, res, next) => {
+module.exports.displayAnswerPage= (req, res, next) => {
      
-      res.render('survey/create', {title: 'Add New Survey',
+      res.render('survey/answer', {title: 'Survey Answers',
       displayName: req.user ? req.user.displayName : ''});
   }
   
-  module.exports.processCreatePage = (req, res, next) => {
+module.exports.processAnswerPage =(req, res, next) => {
+    let id = req.params.id
+
+    let updatedSurvey =Questions({
+        "_id": id,
+        "question": req.body.question,
+        "questionsAnswer": req.body.questionsAnswer
+     
+    });
+
+    Questions.updateOne({_id: id}, updatedSurvey, (err) =>{
+        if(err)
+        {
+            console.log(err);
+            res.end(err);
+        }
+        else
+        {
+            //refresh the survey
+            res.redirect('/survey-answer');
+
+        }
+    });
+}
+    
+    
+    
+    /*(req, res, next) => {
     
     let newQuestions = Questions({
         "question": req.body.question,
+        "questionsAnswer": req.body.questionsAnswer
        // "questionType": req.body.question
         
     });
@@ -59,40 +90,28 @@ module.exports.displayCreatePage = (req, res, next) => {
         else
         {
             //refresh the surveys
-            res.redirect('/survey-view');
+            res.redirect('/survey-answer');
         }
     });
 
   
-  }
-
-
-
-
-  module.exports.displayUpdatePage = (req, res, next) =>{
-    let id = req.params.id;
-
-    Questions.findById(id, (err, questionToEdit) => {
-        if(err) 
-        {
-            console.log(err);
-            res.end(err);
-        }
-        else
-        {
-            //show the edit view
-            res.render('survey/update', {title: 'Update Questions ', questions: questionToEdit})
-        }
-    });
-}
-  
-  module.exports.processUpdatePage= (req, res, next) =>{
+  }*/
+    
+    
+    
+    
+    
+    /*
+    
+    
+    (req, res, next) => {
     let id = req.params.id
 
     let updatedSurvey =Questions({
         "_id": id,
-        "question": req.body.question
-     // "questionType": req.body.question
+        "question": req.body.question,
+        "questionsAnswer": req.body.questionsAnswer
+     
     });
 
     Questions.updateOne({_id: id}, updatedSurvey, (err) =>{
@@ -104,26 +123,9 @@ module.exports.displayCreatePage = (req, res, next) => {
         else
         {
             //refresh the survey
-            res.redirect('/survey-view');
+            res.redirect('/survey-answer');
 
         }
     });
-}
-  
-  module.exports.performDelete = (req, res, next) =>{
-    let id = req.params.id;
+}*/
 
-    Questions.remove({_id: id}, (err) =>{
-        if(err)
-       {
-           console.log(err);
-           res.end(err);
-       }
-       else
-       {
-            //refresh the refresh survey
-            res.redirect('/survey-view');
-       }
-    });
-  }
-  

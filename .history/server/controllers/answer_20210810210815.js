@@ -31,7 +31,7 @@ let express = require('express');
         {
             
             res.render('survey/answer', {
-                title: 'Survey Answers',
+                title: 'Questions List',
                   QuestionsList: questionList,
 
             displayName: req.user ? req.user.displayName : ''});      
@@ -45,63 +45,17 @@ module.exports.displayAnswerPage= (req, res, next) => {
       displayName: req.user ? req.user.displayName : ''});
   }
   
-module.exports.processAnswerPage = (req, res, next) => {
-    let id = req.params.id
-
-    let updatedAnswers =Questions({
-        "_id": id,
-        "question": req.body.question,
-        "questionsAnswer": req.body.questionsAnswer
-     
-    });
-
-    Questions.updateOne({_id: id}, updatedAnswers, (err) =>{
-        if(err)
-        {
-            console.log(err);
-            res.end(err);
-        }
-        else
-        {
-            //refresh the answers page
-            res.redirect('/survey-answer');
-
-        }
-    });
-}
-    
-    
-    
-    /*(req, res, next) => {
-    
-    let newQuestions = Questions({
-        "question": req.body.question,
-        "questionsAnswer": req.body.questionsAnswer
-       // "questionType": req.body.question
-        
-    });
-
-    Questions.create(newQuestions , (err, question) =>{
-        if(err)
-        {
-            console.log(err);
-            res.send(err);
-        }
-        else
-        {
-            //refresh the surveys
-            res.redirect('/survey-answer');
-        }
-    });
-
-  
-  }*/
+module.exports.processAnswerPage =
     
     
     
     
     
-    /*
+    
+    
+    
+    
+    
     
     
     (req, res, next) => {
@@ -127,5 +81,5 @@ module.exports.processAnswerPage = (req, res, next) => {
 
         }
     });
-}*/
+}
 
