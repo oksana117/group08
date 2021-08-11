@@ -39,14 +39,27 @@
         overflow: hidden;
         background-color: #333;
       }
-     
+
+      /* Style the navigation bar links */
+      .navbar a {
+        float: left;
+        display: block;
+        color: white;
+        text-align: center;
+        padding: 14px 20px;
+        text-decoration: none;
+      }
 
       /* Right-aligned link */
       .navbar a.right {
         float: right;
       }
 
-     
+      /* Change color on hover */
+      .navbar a:hover {
+        background-color: #ddd;
+        color: black;
+      }
       </style>
       </head>
       <body>
@@ -70,7 +83,7 @@
 
 
 
-  <button type="button" class="btn btn-info" onclick="window.location.href='/survey-view'">Start Survey</button>
+  <button type="button" class="btn btn-info" onclick="window.location.href='/survey-view'">Survey List</button>
   <button type="button" class="btn btn-info" onclick="window.location.href='./survey-list/add'">Create Survey</button>
 </main>
    
