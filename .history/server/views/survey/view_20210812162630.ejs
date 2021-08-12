@@ -1,0 +1,92 @@
+<!-- Team: Group 8
+  Web site name : Pandora-Survey
+  Date : July 18, 2021
+  Author's names & Student IDs:
+  Oksana Koshulap: 301167025
+  Remedios Meneses: 300691712
+  Anmary Gain: 301152014 
+  Tesmine Poulose: 301151876
+  Sapna: 301152192 -->
+<%- include ../partials/header.ejs %>
+
+<%- include ../partials/main_nav.ejs %>
+
+
+<!-- view survey should have submit button--> 
+<!-- Main Content -->
+  <main class="container">
+    <div class="row">
+        <div class="offset-md-1 col-md-10">
+            <h1>Survey</h1>
+                <img src="../public/Assets/images/pattern.png" alt="Pandora" width="900" height="20" class="center">
+            
+
+            <br>
+            <br>
+            <div class="table-responsive">
+            <table class="table table-primary table-sm table-bordered table-striped table-hover ">
+                <!-- Header Row-->
+                <tr>
+                    <th class="text-center col-1">Question</th>
+                    <th class="text-center col-1">Answer</th>
+                  
+                  
+                   
+                 
+
+                </tr>
+                
+                   <% for(let count = 0; count <QuestionsList.length; count++) { %>
+                    <tr>
+                        <td class="text-center col-2"><%= QuestionsList[count].question %>
+
+                        <br>
+                         <% if(typeof displayName == 'string' && displayName) { %>
+                        <a href="/survey-view/delete/<%= QuestionsList[count]._id %>" class="btn btn-danger btn-sm"> 
+                        <i class="fas fa-trash-alt"></i> Delete</a><%} %>
+                         <% if(typeof displayName == 'string' && displayName) { %>
+                        <a  href="/survey-view/update/<%= QuestionsList[count]._id %>"class="btn btn-secondary btn-sm">
+                        <i class="fas fa-minus"></i> Edit Questions</a> <%} %>
+                         <% if(typeof displayName == 'string' && displayName) { %>
+                         <a  href="/survey-view/create/<%= QuestionsList[count]._id %>"><button class="btn btn-success" type="submit">
+                           <i class="fas fa-plus-square"></i> Add More Questions</button> </a><%} %>
+                         </td>
+                         <td class="text-center col-1">
+                            <div class="form-group">
+                             
+                            <input type="text" class="form-control"
+                              id="nameATextField"
+                              placeholder="Enter your answer here"
+                              name="questionsAnswer" required>
+                              </div>
+                          </tr>
+                        <% } %>
+                        
+             
+
+
+            
+              
+            </table>
+            </div>
+           
+
+                <!-- /survey-list -->
+                 <a href="/" > <button class="btn btn-primary" type="submit">
+                    <i class="fas fa-edit"></i> Submit</button> </a> 
+                    
+                    <!--
+                    <a href="/survey-list" class="btn btn-warning">
+                        <i class="fas fa-undo"></i> Cancel</a> -->
+        </div>
+    </div>
+
+  </main>
+
+
+
+
+<%- include ../partials/bottom_nav.ejs %>  
+
+<%- include ../partials/footer.ejs %>
+  
