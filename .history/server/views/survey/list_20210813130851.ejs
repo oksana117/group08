@@ -38,14 +38,14 @@
 
 
                <a href="/survey-list/add" > <button class="btn btn-primary" type="submit">
-                    <i class="fas fa-edit" class id ="font2"></i> Create New Survay</button> </a> 
+                    <i class="fas fa-edit"></i> Create New Survay</button> </a> 
                     <br><br>
                 <!-- Header Row-->
                 <tr>
                   
-                    <th class="text-center col-2" class id ="font2">Survey Name</th>
-                    <th class="text-center col-2" class id ="font2">Author Name</th>
-                    <th class="text-center col-4" class id ="font2">Lifetime</th>
+                    <th class="text-center col-2">Survey Name</th>
+                    <th class="text-center col-2">Author Name</th>
+                    <th class="text-center col-4">Lifetime</th>
                     <th class="text-center col-1"></th>
                     <th class="text-center col-1"></th>
                     <th class="text-center col-1"></th>
@@ -59,9 +59,9 @@
                 <% for(let count = 0; count <SurveyList.length; count++) { %>
                  <%SurveyList.sort((a,b)=> (a.name<b.name)*-1);%> 
                     <tr>
-                        <td class="text-center col-2" class id ="font2"><%= SurveyList[count].name %> </td>
-                        <td class="text-center col-2" class id ="font2"><%= SurveyList[count].displayName %></td> 
-                        <td class="text-center col-4" class id ="font2"><%= SurveyList[count].endDate%></td>
+                        <td class="text-center col-2"><%= SurveyList[count].name %> </td>
+                        <td class="text-center col-2"><%= SurveyList[count].displayName %></td> 
+                        <td class="text-center col-4"><%= SurveyList[count].endDate%></td>
                                     <td class="text-center col-1">
                                     <% if(typeof displayName == 'string' && displayName) { %>
                                     <a href="/survey-list/edit/<%= SurveyList[count]._id %>" class="btn btn-primary btn-sm">

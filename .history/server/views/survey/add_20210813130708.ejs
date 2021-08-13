@@ -7,23 +7,26 @@
   Anmary Gain: 301152014 
   Tesmine Poulose: 301151876
   Sapna: 301152192 -->
-  
 <%- include ../partials/header.ejs %>
+
 <%- include ../partials/main_nav.ejs %>
 
+<!-- Content for the Add page -->
 <style>
  #font{
       color: #2E8BC0  ;
       font-family: Arial, Helvetica, sans-serif;
 
     }
-     #font2{
+
+    #font2{
      color: #05445E  ;
-    
+
+       font-family:  Arial, Helvetica, sans-serif;
+       font-size: 15px
     }
   
 </style>
-<!-- edit view -->
 
 <div class="container">
     <div class="row">
@@ -32,37 +35,33 @@
 
             <form class="form" method="POST">
                 <div class="form-group">
-                    <label for="nameTextField" class id ="font2">Survey Name</label>
+                    <label for="nameTextField">Survey Name</label>
                     <input type="text" class="form-control"
                     id="nameTextField"
                     placeholder="Enter survey name"
-                    name="name" 
-                    value="<%= survey.name %>"
-                    required>
+                    name="name" required>
                 </div>
-
+                
                 <div class="form-group">
-                    <label for="numberTextField" class id ="font2">Author Name</label>
+                    <label for="numberTextField">Author Name</label>
                     <input type="text" class="form-control"
                     id="numberTextField"
                     placeholder="Enter first and last name"
-                    name="displayName" 
-                    value="<%= survey.displayName%>"
-                    required>
-                </div>
+                    name="displayName" required>
+                </div> 
 
                 <div class="form-group">
-                    <label for="emailTextField" class id ="font2">Active Till</label>
+                    <label for="emailTextField">End Date</label>
                     <input type="date" class="form-control"
                     id="endDate"
-                    placeholder="Enter the end date of survey" value="<%= survey.formattedDate %>" min="2021-07-31"
+                    placeholder="Enter the end date of survey" min="<%= minDate %>" value="<%= minDate %>"
                     name="endDate" required>
-                </div>   
-             
-                <button class="btn btn-primary" type="submit">
-                <i class="fas fa-edit"></i> Submit</button>
+                </div>                
                 
-                    <a href="/survey-list" class="btn btn-warning">
+                 <a href="/survey-list" > <button class="btn btn-primary" type="submit">
+                    <i class="fas fa-edit"></i> Submit</button> </a> 
+                
+                    <a href="/home" class="btn btn-warning">
                         <i class="fas fa-undo"></i> Cancel</a>
 
             </form>
@@ -71,8 +70,9 @@
     </div>
 </div>
 
-
 <%- include ../partials/bottom_nav.ejs %>  
 
 <%- include ../partials/footer.ejs %>
   
+
+
