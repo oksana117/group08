@@ -8,13 +8,10 @@
   Tesmine Poulose: 301151876
   Sapna: 301152192 -->
   <style>
-  #font12{
-    color: #003B73;
+  #font{
+    color: #000072;
   }
   
-   #fontA{
-    color: #BFD7ED;
-  }
   </style>
 <!--Main navigation -->
 <body style="background-color:#EBF5FB">
@@ -34,14 +31,14 @@
 <!-- nagivation that detects which page is active so the correct content is displayed-->
         <li class="nav-item">
               <% if (title == "Home") { %>
-              <a class="nav-link active" class id ="fontA">
+              <a class="nav-link active">
               <% } else { %> 
               <a class="nav-link"  href="/home"> <% } %> <i class="fas fa-house-user fa-lg"></i> Home </a>
           </li>
       
       <li class="nav-item">
               <% if (title=="About" ) { %>
-              <a class="nav-link active" class id ="fontA">
+              <a class="nav-link active">
               <% } else { %>
               <a class="nav-link" href="/about"> <% } %><i class="fas fa-question-circle fa-lg"></i> About </a>
       </li>
@@ -49,37 +46,37 @@
       
       <li class="nav-item">
           <% if (title=="Services" ) { %>
-            <a class="nav-link active" class id ="fontA"><% }
+            <a class="nav-link active"><% }
              else { %> <a class="nav-link" href="/services"> <% } %> <i class="fas fa-laptop-code fa-lg"></i> Services </a>
       </li>
           <% if(typeof displayName == 'string' && displayName) { %>
               <li class="nav-item">
-                <% if (title=="Survey List" ) { %>
-                  <a class="nav-link active" class id ="fontA">
+                <% if (title=="Profile" ) { %>
+                  <a class="nav-link active">
                     <% } else { %><a class="nav-link" href="/survey-list"><% } %><i class="fas fa-user-alt"></i> Profile</a>
             </li> <% } %>
-  
-     <li class="nav-item">
-          <% if (title=="Questions List" ) { %>
-            <a class="nav-link active" class id ="fontA">
+
+          <li class="nav-item">
+          <% if (title=="Survey List" ) { %>
+            <a class="nav-link active">
               <% } else { %><a class="nav-link" href="/survey-view"><% } %><i class="fa fa-question-circle"></i> Active Surveys</a>
       </li>
        <% if(typeof displayName == 'string' && displayName) { %>
         <li class="nav-item">
           <% if (title=="Survey Answers" ) { %>
-            <a class="nav-link active" class id ="fontA">
+            <a class="nav-link active">
               <% } else { %><a class="nav-link" href="/survey-answer"><% } %><i class="fas fa-database"></i> Surveys Data</a>
       </li> <% } %>
 
     
       <li class="nav-item">
           <% if (title=="Contact" ) { %>
-            <a class="nav-link active" class id ="fontA">
+            <a class="nav-link active">
               <% } else { %><a class="nav-link" href="/contact"><% } %><i class="fas fa-mail-bulk fa-lg"></i> Contact </a>
       </li>
 
       <% if(typeof displayName == 'string' && displayName) { %>
-          <li class="navbar-text" class id="font12" ><i class="fas fa-lg fa-user" ></i> Welcome, <%= displayName %></li>
+          <li class="navbar-text" ><iclass class="fas fa-lg fa-user" ></iclass id="font"> Welcome, <%= displayName %></li>
           <li class="nav-item"><a href="/logout" class="nav-link">
             <i class="fas fa-lg fa-sign-out-alt"></i> Logout</a></li>
         <% } else { %>

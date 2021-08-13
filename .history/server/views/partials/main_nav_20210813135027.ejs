@@ -54,27 +54,27 @@
       </li>
           <% if(typeof displayName == 'string' && displayName) { %>
               <li class="nav-item">
-                <% if (title=="Survey List" ) { %>
+                <% if (title=="Profile" ) { %>
                   <a class="nav-link active" class id ="fontA">
                     <% } else { %><a class="nav-link" href="/survey-list"><% } %><i class="fas fa-user-alt"></i> Profile</a>
             </li> <% } %>
-  
-     <li class="nav-item">
-          <% if (title=="Questions List" ) { %>
+
+          <li class="nav-item">
+          <% if (title=="Survey List" ) { %>
             <a class="nav-link active" class id ="fontA">
               <% } else { %><a class="nav-link" href="/survey-view"><% } %><i class="fa fa-question-circle"></i> Active Surveys</a>
       </li>
        <% if(typeof displayName == 'string' && displayName) { %>
         <li class="nav-item">
           <% if (title=="Survey Answers" ) { %>
-            <a class="nav-link active" class id ="fontA">
+            <a class="nav-link active" >
               <% } else { %><a class="nav-link" href="/survey-answer"><% } %><i class="fas fa-database"></i> Surveys Data</a>
       </li> <% } %>
 
     
       <li class="nav-item">
           <% if (title=="Contact" ) { %>
-            <a class="nav-link active" class id ="fontA">
+            <a class="nav-link active">
               <% } else { %><a class="nav-link" href="/contact"><% } %><i class="fas fa-mail-bulk fa-lg"></i> Contact </a>
       </li>
 

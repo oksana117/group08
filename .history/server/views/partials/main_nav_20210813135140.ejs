@@ -54,13 +54,12 @@
       </li>
           <% if(typeof displayName == 'string' && displayName) { %>
               <li class="nav-item">
-                <% if (title=="Survey List" ) { %>
+                <% if (title=="Profile" ) { %>
                   <a class="nav-link active" class id ="fontA">
                     <% } else { %><a class="nav-link" href="/survey-list"><% } %><i class="fas fa-user-alt"></i> Profile</a>
             </li> <% } %>
-  
-     <li class="nav-item">
-          <% if (title=="Questions List" ) { %>
+          <li class="nav-item">
+          <% if (title=="Survey List" ) { %>
             <a class="nav-link active" class id ="fontA">
               <% } else { %><a class="nav-link" href="/survey-view"><% } %><i class="fa fa-question-circle"></i> Active Surveys</a>
       </li>
