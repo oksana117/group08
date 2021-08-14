@@ -14,7 +14,7 @@ module.exports =
     //URI connection to a cluster collections 
     
   //"URI": "mongodb://localhost/survey"
-  "URI": "mongodb+srv://oksana:Ib8cExUfXMwDtkeX@cluster0.axgsh.mongodb.net/survey?retryWrites=true&w=majority"
+  //"URI": "mongodb+srv://Oksana:GooWTTHGuV4AwrXX@mongodbserver.wuevp.mongodb.net/survey?retryWrites=true&w=majority"
     
     
 }
