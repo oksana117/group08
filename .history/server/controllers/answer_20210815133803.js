@@ -39,6 +39,7 @@
     });
   }
 
+  
 
 module.exports.displayAnswerPage = (req, res, next) => {
      
@@ -72,39 +73,5 @@ module.exports.processAnswerPage = (req, res, next) => {
         }
     });
   
-}
-  
-/*  
-module.exports.displayAnswerPage= (req, res, next) => {
-     
-      res.render(' survey/answer', {title: 'Survey Answers',
-      displayName: req.user ? req.user.displayName : ''});
   }
-  
-module.exports.processAnswerPage = (req, res, next) => {
-    let id = req.params.id
-
-    let updatedAnswers =Questions({
-        "_id": id,
-        "question": req.body.question,
-        "questionsAnswer": req.body.questionsAnswer
-     
-    });
-
-    Questions.updateOne({_id: id}, updatedAnswers, (err) =>{
-        if(err)
-        {
-            console.log(err);
-            res.end(err);
-        }
-        else
-        {
-            //refresh the answers page
-            res.redirect('/survey-answer');
-
-        }
-    });
-}
-*/
- 
 

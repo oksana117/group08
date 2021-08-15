@@ -56,7 +56,7 @@
 
 
             
-                 
+                 <form class="form" method="POST">
                    <% for(let count = 0; count <QuestionsList.length; count++) { %>
                     <tr>
                         <td class="text-center col-2" class id ="font2"><%= QuestionsList[count].question %>
@@ -74,20 +74,20 @@
                          </td>
                          <td class="text-center col-1">
 
-                         <form class="form" method="POST">
+                         
                          <div class="form-group">
                          <input type="text" class="form-group"
                               id="nameATextField"
                               placeholder="Enter your answer here"
                               name="questionsAnswer" required></div>
+                              
                           </form> 
-                        
                           </tr>
                         <% } %>
                          
                     
 
-            
+                  </form> 
             
               
             </table>
