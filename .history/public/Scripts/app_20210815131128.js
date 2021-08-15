@@ -20,7 +20,7 @@
         for(button of deleteButtons)
         {
             button.addEventListener('click', (event)=>{
-                if(!confirm("Delete?")) 
+                if(!confirm("Delete the selected ")) 
                 {
                     event.preventDefault();
                     window.location.assign('/survey-list');
