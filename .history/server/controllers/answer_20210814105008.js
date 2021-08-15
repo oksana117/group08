@@ -79,8 +79,7 @@ module.exports.displayAnswerPage = (req, res, next) => {
       displayName: req.user ? req.user.displayName : ''});
   }
   
-
-module.exports.processAnswerPage = (req, res, next) => {
+  module.exports.processAnswerPage  = (req, res, next) => {
     
      let id = req.params.id
 
@@ -106,4 +105,3 @@ module.exports.processAnswerPage = (req, res, next) => {
     });
   
   }
-

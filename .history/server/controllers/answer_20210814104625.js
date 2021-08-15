@@ -38,8 +38,7 @@ let express = require('express');
         }
     });
   }
-
-  /*  
+  
 module.exports.displayAnswerPage= (req, res, next) => {
      
       res.render(' survey/answer', {title: 'Survey Answers',
@@ -70,28 +69,52 @@ module.exports.processAnswerPage = (req, res, next) => {
         }
     });
 }
-*/
- 
-
-module.exports.displayAnswerPage = (req, res, next) => {
-     
-      res.render('survey/answer', {title: 'Survey Answers',
-      displayName: req.user ? req.user.displayName : ''});
-  }
-  
-
-module.exports.processAnswerPage = (req, res, next) => {
     
-     let id = req.params.id
+    
+    
+    /*(req, res, next) => {
+    
+    let newQuestions = Questions({
+        "question": req.body.question,
+        "questionsAnswer": req.body.questionsAnswer
+       // "questionType": req.body.question
+        
+    });
 
-    let updatedAnswers =Questions({
+    Questions.create(newQuestions , (err, question) =>{
+        if(err)
+        {
+            console.log(err);
+            res.send(err);
+        }
+        else
+        {
+            //refresh the surveys
+            res.redirect('/survey-answer');
+        }
+    });
+
+  
+  }*/
+    
+    
+    
+    
+    
+    /*
+    
+    
+    (req, res, next) => {
+    let id = req.params.id
+
+    let updatedSurvey =Questions({
         "_id": id,
         "question": req.body.question,
         "questionsAnswer": req.body.questionsAnswer
      
     });
 
-    Questions.updateOne({_id: id}, updatedAnswers, (err) =>{
+    Questions.updateOne({_id: id}, updatedSurvey, (err) =>{
         if(err)
         {
             console.log(err);
@@ -99,11 +122,39 @@ module.exports.processAnswerPage = (req, res, next) => {
         }
         else
         {
-            //refresh the answers page
+            //refresh the survey
             res.redirect('/survey-answer');
 
         }
     });
+}*/
+
+module.exports.displayCreatePage = (req, res, next) => {
+     
+      res.render('survey/create', {title: 'Add New Survey',
+      displayName: req.user ? req.user.displayName : ''});
+  }
+  
+  module.exports.processCreatePage = (req, res, next) => {
+    
+    let newQuestions = Questions({
+        "question": req.body.question,
+       // "questionType": req.body.question
+        
+    });
+
+    Questions.create(newQuestions , (err, question) =>{
+        if(err)
+        {
+            console.log(err);
+            res.send(err);
+        }
+        else
+        {
+            //refresh the surveys
+            res.redirect('/survey-view');
+        }
+    });
+
   
   }
-

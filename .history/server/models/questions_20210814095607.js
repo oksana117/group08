@@ -15,11 +15,11 @@ mongoose.Schema.Types.Boolean.convertToFalse.add('');
 let  questionsModel = mongoose.Schema({
   
   //question: String,
-  question: String,
+  question: [],
   questionType: Boolean  ,
   surveyID: String,
   author: String,
-  questionsAnswer: String
+  questionsAnswer: []
 },
 {
     collection: "questions"

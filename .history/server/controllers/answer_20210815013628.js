@@ -100,10 +100,9 @@ module.exports.processAnswerPage = (req, res, next) => {
         else
         {
             //refresh the answers page
-            res.redirect('/survey-answer');
+            res.render('/survey-answer');
 
         }
     });
   
   }
-

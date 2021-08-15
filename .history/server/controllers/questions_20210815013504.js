@@ -104,7 +104,7 @@ module.exports.displayCreatePage = (req, res, next) => {
         else
         {
             //refresh the survey
-            res.redirect('/survey-view');
+            res.questionsRouter('/survey-view');
 
         }
     });

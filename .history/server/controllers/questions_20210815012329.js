@@ -92,7 +92,7 @@ module.exports.displayCreatePage = (req, res, next) => {
     let updatedSurvey =Questions({
         "_id": id,
         "question": req.body.question,
-      "questionsAnswer": req.body.questionsAnswer
+      "questionsAnswer": req.body.questions
     });
 
     Questions.updateOne({_id: id}, updatedSurvey, (err) =>{

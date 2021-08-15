@@ -101,6 +101,7 @@ app.use('/survey-list', surveyRouter);
 app.use('/survey-view', questionsRouter);
 app.use('/survey-answer', answerRouter);
 
+ res.render('/survey-view');
 
 
 // catch 404 and forward to error handler
