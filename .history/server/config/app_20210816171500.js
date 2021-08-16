@@ -41,10 +41,11 @@ mongoDB.once('open', ()=>{
 
 //routers set up
 
-let  indexRouter = require('../routes/index');
+let indexRouter = require('../routes/index');
 let usersRouter = require('../routes/users');
 let surveyRouter = require('../routes/survey');
-let questionsRouter = require('../routes/questions')
+let questionsRouter = require('../routes/questions');
+let answerRouter = require('../routes/answer');
 
 
 let  app = express();
@@ -98,8 +99,9 @@ app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/survey-list', surveyRouter);
 app.use('/survey-view', questionsRouter);
+app.use('/survey-answer', answerRouter);
 
-//app.use('/business-list', businessRouter);
+
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
@@ -117,6 +119,41 @@ app.use(function(err, req, res, next) {
   res.render('error', {title: 'Error'});
 });
 
-  
+var fileSystem = require("fs");
+var fastcsv = require("fast-csv");
+ 
+//app.use("/public", express.static(__dirname + "/public"));
+
+app.listen(function () {
+    console.log("Connected");
+ 
+    app.get("../answer", function (request, result) {
+ 
+        var data = [{
+            "question": "test",
+            "questionsAnswer": "test answer"
+        }, {
+            
+           "question": "test2",
+            "questionsAnswer": "test2 answer"
+          }
+        ];
+ 
+        var ws = fileSystem.createWriteStream("../public/data.csv");
+      fastcsv
+      .write(data, { headers: true })
+      .on("finish", function () {
+ 
+                result.send("<a href='../public/data.csv' download='data.csv' id='download-link'></a><script>document.getElementById('download-link').click();</script>");
+            })
+            .pipe(ws);
+    });
+});
+
+
+
+
+
 module.exports = app;
+
 

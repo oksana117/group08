@@ -1,4 +1,13 @@
-/* Oksana Koshulap, 301167025, June 18, 2021 */
+/* Team: Group 8
+  Web site name : Pandora-Survey
+  Date : July 18, 2021
+  Author's names & Student IDs:
+  Oksana Koshulap: 301167025
+  Remedios Meneses: 300691712
+  Anmary Gain: 301152014 
+  Tesmine Poulose: 301151876
+  Sapna: 301152192 */
+
 
 let createError = require('http-errors');
 let  express = require('express');
@@ -32,10 +41,11 @@ mongoDB.once('open', ()=>{
 
 //routers set up
 
-let  indexRouter = require('../routes/index');
+let indexRouter = require('../routes/index');
 let usersRouter = require('../routes/users');
 let surveyRouter = require('../routes/survey');
-let questionsRouter = require('../routes/questions')
+let questionsRouter = require('../routes/questions');
+let answerRouter = require('../routes/answer');
 
 
 let  app = express();
@@ -89,8 +99,9 @@ app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/survey-list', surveyRouter);
 app.use('/survey-view', questionsRouter);
+app.use('/survey-answer', answerRouter);
 
-//app.use('/business-list', businessRouter);
+
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
@@ -108,6 +119,45 @@ app.use(function(err, req, res, next) {
   res.render('error', {title: 'Error'});
 });
 
-  
+var fileSystem = require("fs");
+var fastcsv = require("fast-csv");
+ 
+app.use("/public", express.static(__dirname + "/public"));
+ var http = require("http").createServer(app);
+use.listen(3000, function () {
+    console.log("Connected");
+ 
+    app.get("/exportData", function (request, result) {
+ 
+        var data = [{
+            "id": 1,
+            "name": "Adnan",
+            "age": 29
+        }, {
+            "id": 2,
+            "name": "Ali",
+            "age": 31
+        }, {
+            "id": 3,
+            "name": "Ahmad",
+            "age": 33
+        }];
+ 
+        var ws = fileSystem.createWriteStream("public/data.csv");
+        fastcsv
+            .write(data, { headers: true })
+            .on("finish", function() {
+ 
+                result.send("<a href='/public/data.csv' download='data.csv' id='download-link'></a><script>document.getElementById('download-link').click();</script>");
+            })
+            .pipe(ws);
+    });
+});
+
+
+
+
+
 module.exports = app;
+
 

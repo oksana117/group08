@@ -41,10 +41,11 @@ mongoDB.once('open', ()=>{
 
 //routers set up
 
-let  indexRouter = require('../routes/index');
+let indexRouter = require('../routes/index');
 let usersRouter = require('../routes/users');
 let surveyRouter = require('../routes/survey');
-let questionsRouter = require('../routes/questions')
+let questionsRouter = require('../routes/questions');
+let answerRouter = require('../routes/answer');
 
 
 let  app = express();
@@ -98,8 +99,9 @@ app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/survey-list', surveyRouter);
 app.use('/survey-view', questionsRouter);
+app.use('/survey-answer', answerRouter);
 
-//app.use('/business-list', businessRouter);
+
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
@@ -117,6 +119,12 @@ app.use(function(err, req, res, next) {
   res.render('error', {title: 'Error'});
 });
 
-  
+
+
+
+
+
+
 module.exports = app;
+
 

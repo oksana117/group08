@@ -1,0 +1,80 @@
+<!-- Team: Group 8
+  Web site name : Pandora-Survey
+  Date : July 18, 2021
+  Author's names & Student IDs:
+  Oksana Koshulap: 301167025
+  Remedios Meneses: 300691712
+  Anmary Gain: 301152014 
+  Tesmine Poulose: 301151876
+  Sapna: 301152192 -->
+
+  <link rel="icon" href="../public/Assets/images/logo.png" type="image/x-icon"> 
+  
+<%- include ../partials/header.ejs %>
+
+<%- include ../partials/main_nav.ejs %>
+  
+<!-- list contacts view -->
+<style>
+ #font{
+      color: #2E8BC0  ;
+      font-family: Arial, Helvetica, sans-serif;
+
+    }
+     #font2{
+     color: #05445E  ;
+    
+    }
+  
+</style>
+
+  <!-- Main Content -->
+  <main class="container">
+    <div class="row">
+        <div class="offset-md-1 col-md-10">
+         <h1 class id="font"><%= title %></h1>
+            
+
+            <br>
+            <br>
+            <div class="table-responsive">
+            <table class="table table-primary table-sm table-bordered table-striped table-hover  ">
+                <!-- Header Row-->
+                <tr>
+                  
+                    <th class="text-center col-4" class id ="font2">Question</th>
+                    <th class="text-center col-6"class id ="font2">Answer</th>
+                    <th class="text-center col-1"class id ="font2">PDF</th>
+       
+                    
+                 
+
+                </tr>
+              
+                <!-- Repeatable Template Row  that lists contacts alphabetically -->
+                <% for(let count = 0; count <QuestionsList.length; count++) { %>
+                    <tr>
+                       
+                         <td class="text-center col-2" class id ="font2"><%= QuestionsList[count].question %></td> 
+                          <td class="text-center col-2" class id ="font2"><%= QuestionsList[count].questionsAnswer%> </td>
+                     
+                              
+                                     <td class="text-center col-1">
+                                    <button class="btn btn-success btn-sm"  onclick='download-lin'>
+                                    <i class="fas fa-print"></i> Print </button></td>
+                                  
+                        </td></tr>
+                       
+                <% } %>
+            </table>
+            </div>
+        </div>
+    </div>
+  </main>
+  
+<%- include ../partials/bottom_nav.ejs %>  
+
+<%- include ../partials/footer.ejs %>
+  
+
+

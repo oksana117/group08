@@ -41,7 +41,7 @@ var data = [
     decimalSeparator: '.',
     showLabels: true, 
     showTitle: true,
-    title: 'My Awesome CSV',
+    title: 'Survey D',
     useTextFile: false,
     useBom: true,
     useKeysAsHeaders: true,
